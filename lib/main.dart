@@ -141,4 +141,9 @@ class UserSimplePreferences1{
   static Future setusername11(String isChecked11)async=>
       await _preferences.setString(key3, isChecked11);
   static String? getusername11()=> _preferences.getString(key3);
+  static const key4='av2';
+
+  static Future setusername12(String isChecked12)async=>
+      await _preferences.setString(key4, isChecked12);
+  static String? getusername12()=> _preferences.getString(key4);
 }

@@ -48,7 +48,7 @@ String phone="";
     _controller3.setVolume(0.0);
     _controller3.play();
     _controller3.setLooping(true);
-    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE,);
+    //FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE,);
   }
   int bed=-1;
   @override
@@ -207,10 +207,9 @@ String phone="";
                           borderRadius: BorderRadius.circular(10)),
                           child:PrettyQr(
                             image: AssetImage('assets/logo.png'),
-                            typeNumber: 3,
+                            typeNumber: 4,
                             size: 200,
                             data: s+k,
-
                             errorCorrectLevel: QrErrorCorrectLevel.M,
                             roundEdges: true,
                           ),
@@ -224,7 +223,7 @@ String phone="";
                         ], // Only numbers can be entered
                         validator: (value){
                           if(value!.isEmpty){
-                            return 'Phonr no can not be empty';
+                            return 'Phone no can not be empty';
                           }
                           else if(value.length<10){
                             return 'no can not be less than 10 digits';
@@ -267,9 +266,13 @@ String phone="";
                         decoration: InputDecoration(
                             suffixIcon: IconButton(onPressed: ()async{
                               setState(()  {
-                                k=contoller4.text;
-                                show1=!show1;
+                                if(contoller4.text.length>20){
+                                final snackbar=  SnackBar(content: Text("Enter the text within 40 letter"));
+                                  ScaffoldMessenger.of(context)..removeCurrentSnackBar()..showSnackBar(snackbar);
+                                }else{
+                                k=contoller4.text;}
 
+                                show1=!show1;
                               });}, icon:Icon(Icons.check),),
                             hintText: "Enter Place Where You are Going"
                         ),

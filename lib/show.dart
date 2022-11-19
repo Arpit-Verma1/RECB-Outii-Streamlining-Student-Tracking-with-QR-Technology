@@ -22,9 +22,10 @@ class _FetchDataState extends State<FetchData> {
   DatabaseReference reference = FirebaseDatabase.instance.ref().child('Students');
   TextEditingController controller1=TextEditingController();
   bool islistening=false;
-  final String b1=(DateFormat("yyyy").format(DateTime.now())).substring(2,4) ;
-  final String b3=(DateFormat("yyyy").format(DateTime.now())).substring(2,4) ;
-  final String b4=(DateFormat("yyyy").format(DateTime.now())).substring(2,4) ;
+  final String b1=DateFormat("yyyy").format(DateTime.now()).substring(2,4);
+  final int b2=int.parse(DateFormat("yyyy").format(DateTime.now()).substring(2,4))-1 ;
+  final int b3=int.parse(DateFormat("yyyy").format(DateTime.now()).substring(2,4))-2 ;
+  final int b4=int.parse(DateFormat("yyyy").format(DateTime.now()).substring(2,4))-3 ;
   String c1="";
   String c3="";
   String c4="";
@@ -45,7 +46,11 @@ class _FetchDataState extends State<FetchData> {
     final String a=student['Name'];
     Size size=MediaQuery.of(context).size;
     return Visibility(visible: controller1.text.toLowerCase()=="red"?(student['Timeout']=="0"?true:false):controller1.text.toLowerCase()=="green"?(student['Timeout']!="0"?true:false)
-        : controller1.text.toLowerCase()=="first red"?(a.contains("${b1}0")&&student['Timeout']=="0"):a.contains(controller1.text.toLowerCase()),
+        : controller1.text.toLowerCase()=="first red"?(a.contains("${b1}0")&&student['Timeout']=="0"):
+    controller1.text.toLowerCase()=="second red"?(a.contains("${b2}0")&&student['Timeout']=="0"):
+    controller1.text.toLowerCase()=="third red"?(a.contains("${b3}0")&&student['Timeout']=="0"):
+    controller1.text.toLowerCase()=="fourth red"?(a.contains("${b4}0")&&student['Timeout']=="0"):
+    a.contains(controller1.text.toLowerCase()),
         child:
       Container(
       margin: const EdgeInsets.all(0),

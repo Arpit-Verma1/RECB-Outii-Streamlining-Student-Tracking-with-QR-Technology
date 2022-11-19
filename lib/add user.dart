@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'qrpage.dart';
 class add extends StatefulWidget {
   const add({Key? key}) : super(key: key);
 
@@ -9,6 +10,7 @@ class add extends StatefulWidget {
 
 class _addState extends State<add> {
  TextEditingController controller=TextEditingController();
+ TextEditingController controller1=TextEditingController();
  late DatabaseReference _dbref;
  String text="";
 
