@@ -6,9 +6,9 @@
 |:----------------------------------------:|:----------------------------------------:|:-----------------------------------------:|
 | <img src="https://github.com/devicons/devicon/blob/master/icons/androidstudio/androidstudio-original.svg" alt="Android" width="50" height="50"/> </a> <a href="https://www.java.com" target="_blank"> | <img src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg" alt="Android" width="50" height="50"/> </a> <a href="https://www.java.com" target="_blank">  | <img src="https://github.com/rahuldkjain/github-profile-readme-generator/blob/master/src/images/icons/MobileAppDevelopment/dart.svg" alt="Android" width="50" height="50"/> </a> <a href="https://www.java.com" target="_blank">  |
  
- <p align="center">
- <a href=""><img src="https://github.com/arpitvermaofficial/RECB-Notes/blob/master/assets/code.png" width="80%" /></a>
- </p>
+
+![0](https://user-images.githubusercontent.com/99536186/215308174-1f0d7303-c2b7-49ec-8688-ef410b8a246c.png)
+
  
  ## 🤔 What is this App
  
@@ -38,18 +38,22 @@
   ## 📸 Screenshots
  
 
- 
+
 
 ||||
-|:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------:|
-| ![Imgur](assets/1.jpg) |![Imgur](assets/2.png) | ![Imgur](assets/3.png) |
-| ![Imgur](assets/4.png) |![Imgur](assets/5.png) | ![Imgur](assets/6.jpeg) |
-| ![Imgur](assets/8.png) |![Imgur](assets/9.jpeg) | 
-  
+|:------------------------------------------------:|:------------------------------------------------:|:------------------------------------------------:|
+| ![1](https://user-images.githubusercontent.com/99536186/215308204-16975529-ec0f-43ca-ba97-90cd6e7943b4.jpg) | ![2](https://user-images.githubusercontent.com/99536186/215308205-e8b58d95-fb7c-433d-868b-c97ff7841037.png)|![3](https://user-images.githubusercontent.com/99536186/215308207-327e39c4-82d8-4d7b-80cc-52e18f59e28a.png)|
+| ![4](https://user-images.githubusercontent.com/99536186/215308208-7f256a6a-2859-41a2-8297-116996ef49dd.png)| ![5](https://user-images.githubusercontent.com/99536186/215308210-1f077086-6e3a-46c5-97f1-20049ff71474.png) | ![6](https://user-images.githubusercontent.com/99536186/215308211-006a54bb-2da1-453d-93fa-14414460f6dd.jpeg) |
+| ![7](https://user-images.githubusercontent.com/99536186/215308212-755cd520-3502-4aa7-9ea7-eadd0ca64b96.png) | ![9](https://user-images.githubusercontent.com/99536186/215308197-43dbb98f-b70b-45c7-84fb-49c39e040080.jpeg) |                                                                                                                                          
+                                                                                                                                           
+
  
- <p align="center">
- <a href=""><img src="https://github.com/arpitvermaofficial/RECB-Outii/blob/master/assets/RECB_Outii.gif" width="50%" /></a>
- </p>
+
+
+ <br>
+ 
+![RECB_Outii](https://user-images.githubusercontent.com/99536186/215308629-918098e8-3030-4067-bc37-bbc47342dca8.gif)|
+
   
   
   <h2 align="center">📝 Created by </h2>
@@ -57,8 +61,8 @@
 
 <h3>Arpit Verma</h3>
 
-  <a href="https://linkedin.com/in/arpit-v-1a4205220" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="ansuman-behera-7b00b61b6" height="30" width="40" /></a>
-  <a href="https://github.com/arpitvermaofficial" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="_ansuman_behera_/" height="30" width="40" />
+  <a href="https://linkedin.com/in/arpit-v-1a4205220" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="arpit_verma" height="30" width="40" /></a>
+  <a href="https://github.com/arpitvermaofficial" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="arpitvermaofficial" height="30" width="40" />
   </a>   <a href="https://developers.google.com/profile
-/u/102728849976140432195" target="blank"><img align="center" src="https://pbs.twimg.com/profile_images/1111678689228582913/t2k7QK3r_400x400.png" alt="_ansuman_behera_/" height="30" width="40" /></a>
-   <a href="https://www.hackerrank.com/arpitv747" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="_ansuman_behera_/" height="30" width="40" /></a>
+/u/102728849976140432195" target="blank"><img align="center" src="https://pbs.twimg.com/profile_images/1111678689228582913/t2k7QK3r_400x400.png" alt="arpitvermaofficial" height="30" width="40" /></a>
+   <a href="https://www.hackerrank.com/arpitv747" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="arpitvermaofficial" height="30" width="40" /></a>
