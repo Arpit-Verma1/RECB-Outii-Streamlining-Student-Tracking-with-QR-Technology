@@ -46,9 +46,9 @@ class _qrscanState extends State<qrscan> {
   TextEditingController controller1 = TextEditingController();
   List<String> people1 = ['kingarpit268@gmail.com'];
   List<String> people2 = ['kingarpitverma@gmail.com'];
-  List<String> people3 = ['namratavermaart@gmail.com'];
-  List<String> people4 = ['kamanav55@gmail.com'];
-  List<String> people5 = ['namratavermaart@gmail.com'];
+  List<String> people3 = ['arpitverma0249@gmail.com'];
+  List<String> people4 = ['arpitverma0249@gmail.com'];
+  List<String> people5 = ['arpitverma0249@gmail.com'];
   Color shadowcolor1 = Colors.red;
   Color shadowcolor2 = Colors.purpleAccent.shade700;
   var status = Permission.sms.request().isGranted;
