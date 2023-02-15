@@ -1,4 +1,5 @@
 # RECB OUTII ( Using - Flutter )
+<div align="center">
 
 [⬇️Download App](https://drive.google.com/file/d/1-nu2E6trHPANjLc0ibzRmMRtktXcM0Ma/view?usp=sharing)
 
@@ -8,13 +9,14 @@
  
 
 ![0](https://user-images.githubusercontent.com/99536186/215308174-1f0d7303-c2b7-49ec-8688-ef410b8a246c.png)
-
+</div>
  
- ## 🤔 About this App
- 
+ ## About this App🤔
+ <div align="center">
  ✍️ Here is RECB Outii". Just select where are going and and show your QR Code and Go.
+ </div>
  
- ## 💡 Tech Stacks Used
+ ## Tech Stacks Used💡 
 
 1. Flutter
 2. Firebase
