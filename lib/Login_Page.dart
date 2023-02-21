@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:outii/routes/rotes_name.dart';
 import 'package:video_player/video_player.dart';
 import 'Utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -336,9 +337,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                                   ],
                                   fontSize: 24),
                             ),
-                            onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (context) => ForgotPassword())),
+                            onTap: () => Navigator.pushNamed(
+                                context, RouteName.forgot_passwd),
                           ),
                           SizedBox(
                             height: 7,
