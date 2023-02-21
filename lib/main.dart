@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:outii/routes/rotes_name.dart';
+import 'package:outii/routes/routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'auth.dart';
 import 'emailverify.dart';
@@ -44,7 +46,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      initialRoute: RouteName.My_HomePage,
+      onGenerateRoute: Routes.genrateRoute,
     );
   }
 }
