@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:outii/routes/rotes_name.dart';
 import 'sample.dart';
 import 'package:video_player/video_player.dart';
 
@@ -50,12 +51,8 @@ class _splashState extends State<splash> {
       });
     super.initState();
     Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) => sample(
-                    show: show1,
-                  )));
+      Navigator.pushReplacementNamed(context, RouteName.sample,
+          arguments: {"show": show1});
     });
   }
 
