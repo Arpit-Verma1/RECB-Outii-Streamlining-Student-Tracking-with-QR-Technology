@@ -9,8 +9,7 @@ import 'package:outii/routes/rotes_name.dart';
 import 'add user.dart';
 import 'main.dart';
 import 'Qr_Generate.dart';
-import 'Student_Qr_Scan.dart';
-
+import 'Stuedent_Qr_Scan.dart';
 import 'Students_Data.dart';
 import 'Splash_Screen.dart';
 import 'User_Data.dart';
@@ -31,7 +30,7 @@ class sample extends StatefulWidget {
 
 class _sampleState extends State<sample> {
   List page = [qrscan(), FetchData()];
-  List page1 = [Qr_Generate(), user_data()];
+  List page1 = [Page1(), user_data()];
   int i = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -59,8 +58,8 @@ class _sampleState extends State<sample> {
   ];
   late DatabaseReference _dbref;
   final items1 = <Widget>[
-    Icon(Icons.qr_code),
-    Icon(Icons.account_circle),
+    Icon(Icons.qr_code,),
+    Icon(Icons.account_circle,),
   ];
   @override
   Widget build(BuildContext context) {
@@ -73,9 +72,10 @@ class _sampleState extends State<sample> {
                     .copyWith(iconTheme: IconThemeData(color: Colors.black)),
                 child: CurvedNavigationBar(
                   index: 0,
-                  color: Colors.cyanAccent,
-                  buttonBackgroundColor: Colors.purpleAccent,
-                  backgroundColor: Color.fromARGB(255, 245, 189, 159),
+                  color: Colors.blue,
+                  buttonBackgroundColor: Colors.white,
+                  backgroundColor: Colors.white,
+                  // backgroundColor: Color.fromARGB(255, 245, 189, 159),
                   height: 55,
                   items: show1 == false ? items1 : items,
                   onTap: (pageindex) => setState(() {

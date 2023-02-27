@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'Student_Qr_Scan.dart';
+import 'Stuedent_Qr_Scan.dart';
 
 class add extends StatefulWidget {
   const add({Key? key}) : super(key: key);
