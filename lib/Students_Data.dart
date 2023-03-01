@@ -16,8 +16,9 @@ class FetchData extends StatefulWidget {
 class _FetchDataState extends State<FetchData> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
-  Color shadowcolor1 = Colors.red;
-  Color shadowcolor2 = Colors.purpleAccent.shade700;
+  Color shadowcolor1 = Colors.black;
+  Color shadowcolor2 = Colors.black;
+  // Color shadowcolor2 = Colors.purpleAccent.shade700;
   Query dbRef = FirebaseDatabase.instance.ref().child('Students');
   DatabaseReference reference =
       FirebaseDatabase.instance.ref().child('Students');
@@ -71,9 +72,9 @@ class _FetchDataState extends State<FetchData> {
           height: 35,
           decoration: BoxDecoration(
               color: "${student['Timeout'].toString()}" == "0"
-                  ? Colors.red
-                  : Colors.green,
-              border: Border(bottom: BorderSide(color: Colors.black))),
+                  ? Color.fromRGBO(176, 196, 222, 1.0)
+                  : Color.fromRGBO(135, 206, 250, 0),
+              border: Border(bottom: BorderSide(color: Colors.white))),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -122,10 +123,12 @@ class _FetchDataState extends State<FetchData> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 245, 189, 159),
+        backgroundColor: Colors.white,
+        // backgroundColor: Color.fromARGB(255, 245, 189, 159),
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
           leading: Container(
+
             width: size.width * 0.2,
             height: size.width * 0.2,
             child: FutureBuilder(
@@ -150,18 +153,18 @@ class _FetchDataState extends State<FetchData> {
                 shadows: [
                   Shadow(
                     color: shadowcolor2,
-                    blurRadius: 3,
+                    // blurRadius: 3,
                   ),
                   Shadow(
                     color: shadowcolor2,
-                    blurRadius: 6,
+                    // blurRadius: 6,
                   ),
                   Shadow(
                     color: shadowcolor2,
-                    blurRadius: 9,
+                    // blurRadius: 9,
                   ),
                 ],
-                fontFamily: 'MsMadi',
+                fontFamily: 'Hind',
                 color: Colors.white),
           ),
           bottom: PreferredSize(
@@ -173,7 +176,7 @@ class _FetchDataState extends State<FetchData> {
                           Row(children: [
                             SizedBox(
                                 width: size.width * 0.7,
-                                height: size.height * 0.07,
+                                height: size.height * 0.05,
                                 child: TextField(
                                   onChanged: (value) {
                                     setState(() {});
@@ -182,11 +185,13 @@ class _FetchDataState extends State<FetchData> {
                                   style: TextStyle(color: Colors.white),
                                   decoration: new InputDecoration(
                                     enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius:
+                                            BorderRadius.circular(15),
                                         borderSide: BorderSide(
                                             color: Colors.white, width: 2)),
                                     focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15.0),
+                                      borderRadius:
+                                          BorderRadius.circular(15.0),
                                       borderSide: BorderSide(
                                           color: Colors.white, width: 2),
                                     ),
@@ -217,8 +222,8 @@ class _FetchDataState extends State<FetchData> {
                               glowColor: Colors.white,
                               showTwoGlows: true,
                               child: SizedBox(
-                                  width: size.width * 0.15,
-                                  height: size.height * 0.07,
+                                  width: size.width * 0.13,
+                                  height: size.height * 0.06,
                                   child: ElevatedButton(
                                     style: ButtonStyle(
                                         shape: MaterialStateProperty.all<
@@ -227,7 +232,8 @@ class _FetchDataState extends State<FetchData> {
                                             borderRadius:
                                                 BorderRadius.circular(55.0),
                                             side: BorderSide(
-                                                width: 2, color: Colors.white),
+                                                width: 2,
+                                                color: Colors.white),
                                           ),
                                         ),
                                         backgroundColor:
@@ -237,8 +243,10 @@ class _FetchDataState extends State<FetchData> {
                                       togglerecording();
                                     },
                                     child: Icon(
-                                      islistening ? Icons.mic : Icons.mic_none,
-                                      size: 25,
+                                      islistening
+                                          ? Icons.mic
+                                          : Icons.mic_none,
+                                      size: 20,
                                       color: Colors.white,
                                     ),
                                   )),
@@ -250,48 +258,48 @@ class _FetchDataState extends State<FetchData> {
                               Text(
                                 "Name",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w500,
                                     fontSize: 25,
                                     shadows: [
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 3,
+                                        // blurRadius: 3,
                                       ),
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 6,
+                                        // blurRadius: 6,
                                       ),
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 9,
+                                        // blurRadius: 9,
                                       ),
                                     ],
-                                    fontFamily: 'MsMadi',
+                                    fontFamily: 'Hind',
                                     color: Colors.white),
                               ),
                               SizedBox(
-                                width: size.width * 0.2,
+                                width: size.width * 0.1,
                               ),
                               Text(
                                 "Timein",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w500,
                                     fontSize: 25,
                                     shadows: [
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 3,
+                                        // blurRadius: 3,
                                       ),
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 6,
+                                        // blurRadius: 6,
                                       ),
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 9,
+                                        // blurRadius: 9,
                                       ),
                                     ],
-                                    fontFamily: 'MsMadi',
+                                    fontFamily: 'Hind',
                                     color: Colors.white),
                               ),
                               SizedBox(
@@ -300,27 +308,27 @@ class _FetchDataState extends State<FetchData> {
                               Text(
                                 "Timeout",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w500,
                                     fontSize: 25,
                                     shadows: [
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 3,
+                                        // blurRadius: 3,
                                       ),
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 6,
+                                        // blurRadius: 6,
                                       ),
                                       Shadow(
                                         color: shadowcolor1,
-                                        blurRadius: 9,
+                                        // blurRadius: 9,
                                       ),
                                     ],
-                                    fontFamily: 'MsMadi',
+                                    fontFamily: 'Hind',
                                     color: Colors.white),
                               ),
                               SizedBox(
-                                width: size.width * 0.2,
+                                width: size.width * 0.1,
                               ),
                               Text(
                                 "Purpose",
@@ -341,7 +349,7 @@ class _FetchDataState extends State<FetchData> {
                                         blurRadius: 9,
                                       ),
                                     ],
-                                    fontFamily: 'MsMadi',
+                                    fontFamily: 'Hind',
                                     color: Colors.white),
                               ),
                               SizedBox(

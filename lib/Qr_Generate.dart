@@ -70,295 +70,298 @@ class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 245, 189, 159),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        leading: Container(
-          width: size.width * 0.2,
-          height: size.width * 0.2,
-          child: FutureBuilder(
-            future: _initializeVideoPlayerFuture,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return AspectRatio(
-                  aspectRatio: _controller3.value.aspectRatio,
-                  child: VideoPlayer(_controller3),
-                );
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            },
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        // backgroundColor: Color.fromARGB(255, 245, 189, 159),
+        appBar: AppBar(
+          backgroundColor: Colors.blueAccent,
+          leading: Container(
+            width: size.width * 0.2,
+            height: size.width * 0.2,
+            child: FutureBuilder(
+              future: _initializeVideoPlayerFuture,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return AspectRatio(
+                    aspectRatio: _controller3.value.aspectRatio,
+                    child: VideoPlayer(_controller3),
+                  );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              },
+            ),
+          ),
+          bottom: PreferredSize(
+              child: Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Column(
+                        children: [
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bed = 0;
+                                    k = "Market";
+                                    show1 = false;
+                                  });
+                                },
+                                child: Text("Market"),
+                                style: ElevatedButton.styleFrom(
+                                    primary:
+                                        bed == 0 ? Colors.green : Colors.blue),
+                              ),
+                              SizedBox(
+                                width: size.width * 0.03,
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bed = 1;
+                                    k = "Jannat";
+                                    show1 = false;
+                                  });
+                                },
+                                child: Text("Jannat"),
+                                style: ElevatedButton.styleFrom(
+                                    primary:
+                                        bed == 1 ? Colors.green : Colors.blue),
+                              ),
+                              SizedBox(
+                                width: size.width * 0.03,
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bed = 2;
+                                    k = "Home";
+                                    show1 = false;
+                                  });
+                                },
+                                child: Text("Home"),
+                                style: ElevatedButton.styleFrom(
+                                    primary:
+                                        bed == 2 ? Colors.green : Colors.blue),
+                              ),
+                              SizedBox(
+                                width: size.width * 0.03,
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bed = 3;
+                                    k = "Bank";
+                                    show1 = false;
+                                  });
+                                },
+                                child: Text("Bank"),
+                                style: ElevatedButton.styleFrom(
+                                    primary:
+                                        bed == 3 ? Colors.green : Colors.blue),
+                              ),
+                              SizedBox(
+                                width: size.width * 0.03,
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bed = 4;
+                                    show1 = !show1;
+                                  });
+                                },
+                                child: Text("Anything Else"),
+                                style: ElevatedButton.styleFrom(
+                                    primary:
+                                        bed == 4 ? Colors.green : Colors.blue),
+                              ),
+                              SizedBox(
+                                width: size.width * 0.03,
+                              ),
+                            ]),
+                          )
+                        ],
+                      ))),
+              preferredSize: Size.fromHeight(60)),
+          title: Text(
+            "Rajkiya Engineering College Bijnor",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+                shadows: [
+                  Shadow(
+                    color: shadowcolor2,
+                    blurRadius: 3,
+                  ),
+                  Shadow(
+                    color: shadowcolor2,
+                    blurRadius: 6,
+                  ),
+                  Shadow(
+                    color: shadowcolor2,
+                    blurRadius: 9,
+                  ),
+                ],
+                fontFamily: 'MsMadi',
+                color: Colors.white),
           ),
         ),
-        bottom: PreferredSize(
-            child: Container(
-                margin: EdgeInsets.only(bottom: 10),
-                child: Padding(
-                    padding: EdgeInsets.only(left: 20),
-                    child: Column(
-                      children: [
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  bed = 0;
-                                  k = "Market";
-                                  show1 = false;
-                                });
-                              },
-                              child: Text("Market"),
-                              style: ElevatedButton.styleFrom(
-                                  primary:
-                                      bed == 0 ? Colors.green : Colors.blue),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.03,
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  bed = 1;
-                                  k = "Jannat";
-                                  show1 = false;
-                                });
-                              },
-                              child: Text("Jannat"),
-                              style: ElevatedButton.styleFrom(
-                                  primary:
-                                      bed == 1 ? Colors.green : Colors.blue),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.03,
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  bed = 2;
-                                  k = "Home";
-                                  show1 = false;
-                                });
-                              },
-                              child: Text("Home"),
-                              style: ElevatedButton.styleFrom(
-                                  primary:
-                                      bed == 2 ? Colors.green : Colors.blue),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.03,
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  bed = 3;
-                                  k = "Bank";
-                                  show1 = false;
-                                });
-                              },
-                              child: Text("Bank"),
-                              style: ElevatedButton.styleFrom(
-                                  primary:
-                                      bed == 3 ? Colors.green : Colors.blue),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.03,
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  bed = 4;
-                                  show1 = !show1;
-                                });
-                              },
-                              child: Text("Anything Else"),
-                              style: ElevatedButton.styleFrom(
-                                  primary:
-                                      bed == 4 ? Colors.green : Colors.blue),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.03,
-                            ),
-                          ]),
-                        )
-                      ],
-                    ))),
-            preferredSize: Size.fromHeight(60)),
-        title: Text(
-          "Rajkiya Engineering College Bijnor",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-              shadows: [
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 3,
-                ),
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 6,
-                ),
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 9,
-                ),
-              ],
-              fontFamily: 'MsMadi',
-              color: Colors.white),
-        ),
-      ),
-      body: Form(
-          key: formGlobalKey,
-          child: Center(
-              child: Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ConfettiWidget(
-                    confettiController: controller2,
-                    shouldLoop: true,
-                    emissionFrequency: 0.08,
-                    gravity: 0.3,
-                    blastDirection: pi / 2,
-                    createParticlePath: (size) {
-                      final path = Path();
-                      path.addPolygon([
-                        Offset(20, 5),
-                        Offset(8, 39.6),
-                        Offset(38, 15.6),
-                        Offset(2, 15.6),
-                        Offset(32, 39.6),
-                      ], true);
-                      return path;
-                    }),
-                ConfettiWidget(
-                    confettiController: controller2,
-                    shouldLoop: true,
-                    emissionFrequency: 0.08,
-                    gravity: 0.3,
-                    blastDirection: 0,
-                    createParticlePath: (size) {
-                      final path = Path();
-                      path.addPolygon([
-                        Offset(20, 5),
-                        Offset(8, 39.6),
-                        Offset(38, 15.6),
-                        Offset(2, 15.6),
-                        Offset(32, 39.6),
-                      ], true);
-                      return path;
-                    }),
-                ConfettiWidget(
-                    confettiController: controller2,
-                    shouldLoop: true,
-                    emissionFrequency: 0.08,
-                    gravity: 0.3,
-                    blastDirection: pi,
-                    createParticlePath: (size) {
-                      final path = Path();
-                      path.addPolygon([
-                        Offset(20, 5),
-                        Offset(8, 39.6),
-                        Offset(38, 15.6),
-                        Offset(2, 15.6),
-                        Offset(32, 39.6),
-                      ], true);
-                      return path;
-                    }),
-                Visibility(
-                  visible: show,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: PrettyQr(
-                      image: AssetImage('assets/logo.png'),
-                      typeNumber: 4,
-                      size: 200,
-                      data: s + k,
-                      errorCorrectLevel: QrErrorCorrectLevel.M,
-                      roundEdges: true,
+        body: Form(
+            key: formGlobalKey,
+            child: Center(
+                child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ConfettiWidget(
+                      confettiController: controller2,
+                      shouldLoop: true,
+                      emissionFrequency: 0.08,
+                      gravity: 0.3,
+                      blastDirection: pi / 2,
+                      createParticlePath: (size) {
+                        final path = Path();
+                        path.addPolygon([
+                          Offset(20, 5),
+                          Offset(8, 39.6),
+                          Offset(38, 15.6),
+                          Offset(2, 15.6),
+                          Offset(32, 39.6),
+                        ], true);
+                        return path;
+                      }),
+                  ConfettiWidget(
+                      confettiController: controller2,
+                      shouldLoop: true,
+                      emissionFrequency: 0.08,
+                      gravity: 0.3,
+                      blastDirection: 0,
+                      createParticlePath: (size) {
+                        final path = Path();
+                        path.addPolygon([
+                          Offset(20, 5),
+                          Offset(8, 39.6),
+                          Offset(38, 15.6),
+                          Offset(2, 15.6),
+                          Offset(32, 39.6),
+                        ], true);
+                        return path;
+                      }),
+                  ConfettiWidget(
+                      confettiController: controller2,
+                      shouldLoop: true,
+                      emissionFrequency: 0.08,
+                      gravity: 0.3,
+                      blastDirection: pi,
+                      createParticlePath: (size) {
+                        final path = Path();
+                        path.addPolygon([
+                          Offset(20, 5),
+                          Offset(8, 39.6),
+                          Offset(38, 15.6),
+                          Offset(2, 15.6),
+                          Offset(32, 39.6),
+                        ], true);
+                        return path;
+                      }),
+                  Visibility(
+                    visible: show,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: PrettyQr(
+                        image: AssetImage('assets/logo.png'),
+                        typeNumber: 4,
+                        size: 200,
+                        data: s + k,
+                        errorCorrectLevel: QrErrorCorrectLevel.M,
+                        roundEdges: true,
+                      ),
                     ),
                   ),
-                ),
-                Visibility(
-                  visible: !show,
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ], // Only numbers can be entered
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Phone no can not be empty';
-                      } else if (value.length < 10) {
-                        return 'no can not be less than 10 digits';
-                      } else if (value.length > 10) {
-                        return 'no can not be more than 10 digits';
-                      } else {
-                        return null;
-                      }
-                    },
-                    controller: contoller1,
-                    decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                          onPressed: () async {
-                            setState(() {
-                              if (formGlobalKey.currentState!.validate()) {
-                                formGlobalKey.currentState!.save();
-                                s = user!.email! + contoller1.text + k;
-                                _createdb();
-                                show = !show;
-                                controller2.play();
-                                Timer(Duration(seconds: 10), () {
-                                  setState(() {
-                                    controller2.stop();
+                  Visibility(
+                    visible: !show,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ], // Only numbers can be entered
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Phone no can not be empty';
+                        } else if (value.length < 10) {
+                          return 'no can not be less than 10 digits';
+                        } else if (value.length > 10) {
+                          return 'no can not be more than 10 digits';
+                        } else {
+                          return null;
+                        }
+                      },
+                      controller: contoller1,
+                      decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () async {
+                              setState(() {
+                                if (formGlobalKey.currentState!.validate()) {
+                                  formGlobalKey.currentState!.save();
+                                  s = user!.email! + contoller1.text + k;
+                                  _createdb();
+                                  show = !show;
+                                  controller2.play();
+                                  Timer(Duration(seconds: 10), () {
+                                    setState(() {
+                                      controller2.stop();
+                                    });
                                   });
-                                });
-                              }
-                            });
+                                }
+                              });
 
-                            await UserSimplePreferences1.setusername1(s);
-                            await UserSimplePreferences.setusername(show);
-                          },
-                          icon: Icon(Icons.check),
-                        ),
-                        hintText:
-                            "Enter your Mobile no to generate Your QR Code"),
+                              await UserSimplePreferences1.setusername1(s);
+                              await UserSimplePreferences.setusername(show);
+                            },
+                            icon: Icon(Icons.check),
+                          ),
+                          hintText:
+                              "Enter your Mobile no to generate Your QR Code"),
+                    ),
                   ),
-                ),
-                Visibility(
-                  visible: show1,
-                  child: TextField(
-                    controller: contoller4,
-                    decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                          onPressed: () async {
-                            setState(() {
-                              if (contoller4.text.length > 20) {
-                                final snackbar = SnackBar(
-                                    content: Text(
-                                        "Enter the text within 40 letter"));
-                                ScaffoldMessenger.of(context)
-                                  ..removeCurrentSnackBar()
-                                  ..showSnackBar(snackbar);
-                              } else {
-                                k = contoller4.text;
-                              }
+                  Visibility(
+                    visible: show1,
+                    child: TextField(
+                      controller: contoller4,
+                      decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () async {
+                              setState(() {
+                                if (contoller4.text.length > 20) {
+                                  final snackbar = SnackBar(
+                                      content: Text(
+                                          "Enter the text within 40 letter"));
+                                  ScaffoldMessenger.of(context)
+                                    ..removeCurrentSnackBar()
+                                    ..showSnackBar(snackbar);
+                                } else {
+                                  k = contoller4.text;
+                                }
 
-                              show1 = !show1;
-                            });
-                          },
-                          icon: Icon(Icons.check),
-                        ),
-                        hintText: "Enter Place Where You are Going"),
-                  ),
-                )
-              ],
-            ),
-          ))),
+                                show1 = !show1;
+                              });
+                            },
+                            icon: Icon(Icons.check),
+                          ),
+                          hintText: "Enter Place Where You are Going"),
+                    ),
+                  )
+                ],
+              ),
+            ))),
+      ),
     );
   }
 
