@@ -49,8 +49,8 @@ class _qrscanState extends State<qrscan> {
   List<String> people3 = ['arpitverma0249@gmail.com'];
   List<String> people4 = ['arpitverma0249@gmail.com'];
   List<String> people5 = ['arpitverma0249@gmail.com'];
-  Color shadowcolor1 = Colors.red;
-  Color shadowcolor2 = Colors.purpleAccent.shade700;
+  Color shadowcolor1 = Colors.white;
+  Color shadowcolor2 = Colors.blueAccent;
   var status = Permission.sms.request().isGranted;
 
   @override
@@ -78,31 +78,31 @@ class _qrscanState extends State<qrscan> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
+        backgroundColor: Colors.blue,
+        title: const Text(
           "Rajkiya Engineering College Bijnor",
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 26,
-              shadows: [
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 3,
-                ),
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 6,
-                ),
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 9,
-                ),
-              ],
-              fontFamily: 'MsMadi',
+              fontSize: 22,
+              // shadows: [
+              //   Shadow(
+              //     color: shadowcolor2,
+              //     // blurRadius: 3,
+              //   ),
+              //   Shadow(
+              //     color: shadowcolor2,
+              //     // blurRadius: 6,
+              //   ),
+              //   Shadow(
+              //     color: shadowcolor2,
+              //     // blurRadius: 9,
+              //   ),
+              // ],
+              fontFamily: 'Hind',
               color: Colors.white),
         ),
       ),
-      backgroundColor: Color.fromARGB(255, 245, 189, 159),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Container(
@@ -128,7 +128,7 @@ class _qrscanState extends State<qrscan> {
           Row(children: [
             Text(
               "Name:- ",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w500),
             ),
             Text(barcode == null
                 ? '--'
@@ -138,7 +138,7 @@ class _qrscanState extends State<qrscan> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.05,
             ),
-            Text("Branch:- ", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Branch:- ", style: TextStyle(fontWeight: FontWeight.w500)),
             Text(barcode == null
                 ? '--'
                 : '${barcode!.code}'
@@ -148,7 +148,7 @@ class _qrscanState extends State<qrscan> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.05,
             ),
-            Text('Phone:- ', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text('Phone:- ', style: TextStyle(fontWeight: FontWeight.w500)),
             Text(barcode == null
                 ? '--'
                 : '${barcode!.code}'.substring(
@@ -157,7 +157,7 @@ class _qrscanState extends State<qrscan> {
           ]),
           Row(
             children: [
-              Text("Roll No:- ", style: TextStyle(fontWeight: FontWeight.bold)),
+              Text("Roll No:- ", style: TextStyle(fontWeight: FontWeight.w500)),
               Text(barcode == null
                   ? '--'
                   : '${barcode!.code}'.substring(
@@ -166,7 +166,7 @@ class _qrscanState extends State<qrscan> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.05,
               ),
-              Text("Year:-", style: TextStyle(fontWeight: FontWeight.bold)),
+              Text("Year:-", style: TextStyle(fontWeight: FontWeight.w500)),
               Text(barcode == null
                   ? '--'
                   : (int.parse('${barcode!.code}'.substring(
@@ -190,7 +190,7 @@ class _qrscanState extends State<qrscan> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.05,
               ),
-              Text("Purpose:- ", style: TextStyle(fontWeight: FontWeight.bold)),
+              Text("Purpose:- ", style: TextStyle(fontWeight: FontWeight.w500)),
               Text(barcode == null
                   ? '--'
                   : '${barcode!.code}'.substring(
