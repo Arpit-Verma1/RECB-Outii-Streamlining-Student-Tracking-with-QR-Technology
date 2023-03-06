@@ -1,11 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:outii/routes/rotes_name.dart';
-import 'package:video_player/video_player.dart';
+import 'package:rive/rive.dart';
 import 'Utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:email_validator/email_validator.dart';
-import 'Forgot_Password_Page.dart';
 import 'main.dart';
 
 class Login extends StatefulWidget {
@@ -16,18 +14,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
   @override
   void initState() {
-    _controller = VideoPlayerController.asset(
-      'assets/final4.mp4',
-    );
-    _initializeVideoPlayerFuture = _controller.initialize();
-    // Once the video has been loaded we play the video and set looping to true.
-    _controller.setVolume(0.0);
-    _controller.play();
-    _controller.setLooping(true);
     _animationController =
         AnimationController(vsync: this, duration: animationDuration);
     super.initState();
@@ -39,7 +27,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   final passwordcontroller = TextEditingController();
   @override
   void dispose() {
-    _controller.dispose();
     emailcontroller.dispose();
     passwordcontroller.dispose();
     _animationController.dispose();
@@ -182,23 +169,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                                   child: Container(
                                     width: size.width * 0.7,
                                     height: size.height * 0.3,
-                                    child: FutureBuilder(
-                                      future: _initializeVideoPlayerFuture,
-                                      builder: (context, snapshot) {
-                                        if (snapshot.connectionState ==
-                                            ConnectionState.done) {
-                                          return AspectRatio(
-                                            aspectRatio:
-                                                _controller.value.aspectRatio *
-                                                    0.8,
-                                            child: VideoPlayer(_controller),
-                                          );
-                                        } else {
-                                          return Center(
-                                              child:
-                                                  CircularProgressIndicator());
-                                        }
-                                      },
+                                    child: RiveAnimation.asset(
+                                      'assets/recb_outii.riv',
                                     ),
                                   ))),
                           SizedBox(
