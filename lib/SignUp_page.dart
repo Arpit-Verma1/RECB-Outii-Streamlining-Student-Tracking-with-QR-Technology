@@ -1,8 +1,7 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
-import 'package:video_player/video_player.dart';
+import 'package:rive/rive.dart';
 import 'Utils.dart';
 import 'main.dart';
 
@@ -17,27 +16,12 @@ class SignupWidget extends StatefulWidget {
 }
 
 class _SignupWidgetState extends State<SignupWidget> {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
-  @override
-  void initState() {
-    _controller = VideoPlayerController.asset(
-      'assets/aktulogo.mp4',
-    );
-    _initializeVideoPlayerFuture = _controller.initialize();
-    // Once the video has been loaded we play the video and set looping to true.
-    _controller.play();
-    _controller.setLooping(true);
-    super.initState();
-  }
-
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     Color shadowcolor1 = Colors.red;
-    Color shadowcolor = Colors.purpleAccent.shade700;
     Size size = MediaQuery.of(context).size;
     return Form(
       key: formKey,
@@ -160,21 +144,8 @@ class _SignupWidgetState extends State<SignupWidget> {
                               child: Container(
                                 width: size.width * 0.7,
                                 height: size.height * 0.3,
-                                child: FutureBuilder(
-                                  future: _initializeVideoPlayerFuture,
-                                  builder: (context, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.done) {
-                                      return AspectRatio(
-                                        aspectRatio:
-                                            _controller.value.aspectRatio * 2,
-                                        child: VideoPlayer(_controller),
-                                      );
-                                    } else {
-                                      return Center(
-                                          child: CircularProgressIndicator());
-                                    }
-                                  },
+                                child: RiveAnimation.asset(
+                                  'assets/recb_outii.riv',
                                 ),
                               ))),
                       SizedBox(
