@@ -5,8 +5,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
 import 'package:outii/google%20auth%20api.dart';
-
-import 'main.dart';
 import 'package:flutter_sms/flutter_sms.dart';
 import 'package:intl/intl.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -47,7 +45,7 @@ class _qrscanState extends State<qrscan> {
   List<String> people1 = ['kingarpit268@gmail.com'];
   List<String> people2 = ['kingarpitverma@gmail.com'];
   List<String> people3 = ['arpitverma0249@gmail.com'];
-  List<String> people4 = ['arpitverma0249@gmail.com'];
+  List<String> people4 = ['kingarpitverma@gmail.com'];
   List<String> people5 = ['arpitverma0249@gmail.com'];
   Color shadowcolor1 = Colors.red;
   Color shadowcolor2 = Colors.purpleAccent.shade700;
@@ -77,40 +75,19 @@ class _qrscanState extends State<qrscan> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Rajkiya Engineering College Bijnor",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 26,
-              shadows: [
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 3,
-                ),
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 6,
-                ),
-                Shadow(
-                  color: shadowcolor2,
-                  blurRadius: 9,
-                ),
-              ],
-              fontFamily: 'MsMadi',
-              color: Colors.white),
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.black,
+      //   title: Text(
+      //     "QR Scan",
+      //     style:  GoogleFonts.pacifico(fontSize: 20),
+      //   ),
+      // ),
       backgroundColor: Color.fromARGB(255, 245, 189, 159),
       body: Column(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.65,
-            child: Center(
-              child: buildQview(context),
-            ),
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: buildQview(context),
           ),
           buildresult(),
         ],
@@ -119,10 +96,7 @@ class _qrscanState extends State<qrscan> {
   }
 
   Widget buildresult() => Container(
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.12,
+      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
       child: Column(
         children: [
           Row(children: [
@@ -190,7 +164,9 @@ class _qrscanState extends State<qrscan> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.05,
               ),
-              Text("Purpose:- ", style: TextStyle(fontWeight: FontWeight.bold)),
+              Flexible(
+                  child: Text("Purpose:- ",
+                      style: TextStyle(fontWeight: FontWeight.bold))),
               Text(barcode == null
                   ? '--'
                   : '${barcode!.code}'.substring(
@@ -204,24 +180,18 @@ class _qrscanState extends State<qrscan> {
             height: MediaQuery.of(context).size.height * 0.01,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
                   onPressed: () {
                     _createdb();
                   },
-                  child: Text("Check In")),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.07,
-              ),
+                  child: Text("Check Out")),
               ElevatedButton(
                   onPressed: () {
                     _createdb1();
                   },
-                  child: Text("Check Out")),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.07,
-              ),
+                  child: Text("Check In")),
               Container(
                 padding: EdgeInsets.only(left: 5),
                 height: MediaQuery.of(context).size.height * 0.05,
