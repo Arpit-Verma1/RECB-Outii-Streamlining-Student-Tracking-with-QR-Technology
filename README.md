@@ -69,11 +69,13 @@
 </div>
 
 
+
 <h1 align=center> Project Admin  🤵 </h1>
 
-  <p align="center">
-  <a href="https://github.com/arpitvermaofficial/RECB-Outii/blob/master/assets/0.png"?v=4" width="15%" /></a>
-  <p align="center">
+<p align=center>
+  <img src="https://user-images.githubusercontent.com/99536186/223214218-dd2464a7-2b54-45d4-aa18-629b93f37c92.png" width="100" height="100">
+  </p>
+  <br>
   <a target="_blank"href="https://linkedin.com/in/arpit-v-1a4205220"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="arpitv747@gmail.com"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -82,16 +84,6 @@
   <br>
   
   ## 📸 Screenshots!
-  
-
-
-
-
-
-
- 
-
-
 
 ||||
 |:------------------------------------------------:|:------------------------------------------------:|:------------------------------------------------:|
