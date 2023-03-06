@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:outii/routes/rotes_name.dart';
-import 'sample.dart';
-import 'package:video_player/video_player.dart';
+import 'package:rive/rive.dart';
 
 class splash extends StatefulWidget {
   const splash({Key? key}) : super(key: key);
@@ -16,8 +14,6 @@ class splash extends StatefulWidget {
 }
 
 class _splashState extends State<splash> {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
   final user = FirebaseAuth.instance.currentUser;
   late DatabaseReference _dbref;
   String databasejson = "";
@@ -34,14 +30,6 @@ class _splashState extends State<splash> {
 
   @override
   void initState() {
-    _controller = VideoPlayerController.asset(
-      'assets/final4.mp4',
-    );
-    _initializeVideoPlayerFuture = _controller.initialize();
-    // Once the video has been loaded we play the video and set looping to true.
-    _controller.play();
-    _controller.setVolume(0.0);
-    _controller.setLooping(true);
     _dbref = FirebaseDatabase.instance.ref();
     _readdb1();
     _readdb1();
@@ -54,13 +42,6 @@ class _splashState extends State<splash> {
       Navigator.pushReplacementNamed(context, RouteName.sample,
           arguments: {"show": show1});
     });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-
-    super.dispose();
   }
 
   Widget build(BuildContext context) {
@@ -119,21 +100,15 @@ class _splashState extends State<splash> {
                 child: Column(
                   children: [
                     Padding(
-                        padding: EdgeInsets.all(40),
-                        child: FutureBuilder(
-                          future: _initializeVideoPlayerFuture,
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              return AspectRatio(
-                                aspectRatio: _controller.value.aspectRatio,
-                                child: VideoPlayer(_controller),
-                              );
-                            } else {
-                              return Center(child: CircularProgressIndicator());
-                            }
-                          },
-                        )),
+                      padding: EdgeInsets.all(40),
+                      child: Container(
+                        width: size.width * 0.8,
+                        height: size.height * 0.4,
+                        child: RiveAnimation.asset(
+                          'assets/recb_outii.riv',
+                        ),
+                      ),
+                    ),
                     Padding(
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: Text(
