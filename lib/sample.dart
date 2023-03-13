@@ -1,19 +1,15 @@
 import 'dart:async';
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:outii/routes/rotes_name.dart';
-import 'add user.dart';
-import 'main.dart';
 import 'Qr_Generate.dart';
 import 'Student_Qr_Scan.dart';
-
 import 'Students_Data.dart';
-import 'Splash_Screen.dart';
 import 'User_Data.dart';
+import 'main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri _url = Uri.parse('https://www.facebook.com/recbup/');
@@ -30,7 +26,7 @@ class sample extends StatefulWidget {
 }
 
 class _sampleState extends State<sample> {
-  List page = [qrscan(), FetchData()];
+  List page = [qrscan(), Studentsdata()];
   List page1 = [Qr_Generate(), user_data()];
   int i = 0;
   void _onItemTapped(int index) {
@@ -319,7 +315,9 @@ class _sampleState extends State<sample> {
                           child: Padding(
                             padding: EdgeInsets.only(left: 5),
                             child: GestureDetector(
-                                onTap: () {
+                                onTap: () async {
+                                  await UserSimplePreferences.clear();
+                                  await UserSimplePreferences1.clear();
                                   FirebaseAuth.instance.signOut().then(
                                       (value) => Navigator.pushReplacementNamed(
                                           context, RouteName.My_HomePage));
