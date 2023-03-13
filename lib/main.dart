@@ -106,6 +106,7 @@ class UserSimplePreferences {
   static Future setusername(bool isChecked) async =>
       await _preferences.setBool(key1, isChecked);
   static bool? getusername() => _preferences.getBool(key1);
+  static Future clear() => _preferences.clear();
 }
 
 class UserSimplePreferences1 {
@@ -126,4 +127,5 @@ class UserSimplePreferences1 {
   static Future setusername12(String isChecked12) async =>
       await _preferences.setString(key4, isChecked12);
   static String? getusername12() => _preferences.getString(key4);
+  static Future clear() => _preferences.clear();
 }
