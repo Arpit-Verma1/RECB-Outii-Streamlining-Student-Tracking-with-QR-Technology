@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -6,7 +9,7 @@ class Progressindicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitDancingSquare(
+    return SpinKitCircle(
         size: 50,
         itemBuilder: (context, index) {
           final colors = [Colors.orange, Colors.cyanAccent];
@@ -46,5 +49,32 @@ class Button extends StatelessWidget {
             color: Colors.white,
           )),
     );
+  }
+}
+
+class Confetti extends StatelessWidget {
+  Confetti({Key? key, required this.angle, this.confetticontroller})
+      : super(key: key);
+  final double angle;
+  final confetticontroller;
+  @override
+  Widget build(BuildContext context) {
+    return ConfettiWidget(
+        confettiController: confetticontroller,
+        shouldLoop: true,
+        emissionFrequency: 0.08,
+        gravity: 0.3,
+        blastDirection: angle,
+        createParticlePath: (size) {
+          final path = Path();
+          path.addPolygon([
+            Offset(20, 5),
+            Offset(8, 39.6),
+            Offset(38, 15.6),
+            Offset(2, 15.6),
+            Offset(32, 39.6),
+          ], true);
+          return path;
+        });
   }
 }
