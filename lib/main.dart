@@ -4,20 +4,19 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
+import 'package:outii/Shared_Preferences.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:outii/routes/routes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'auth.dart';
-import 'emailverify.dart';
-import 'Utils.dart';
+import 'View/emailverify.dart';
 import 'firebase_options.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 // @dart=2.9
-
 Future<void> main() async {
+  await Future.delayed(const Duration(seconds: 1))
+      .then((value) => FlutterNativeSplash.remove());
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp(
@@ -41,7 +40,6 @@ Future<void> main() async {
   });
 
   await UserSimplePreferences.init();
-  await UserSimplePreferences1.init();
   runApp(const MyApp());
 }
 
@@ -53,11 +51,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: navigatorKey,
-      scaffoldMessengerKey: Utils.messengerKey,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: RouteName.My_HomePage,
       onGenerateRoute: Routes.genrateRoute,
     );
@@ -95,37 +89,4 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     ));
   }
-}
-
-class UserSimplePreferences {
-  static late SharedPreferences _preferences;
-  static const key1 = 'av';
-  static const key2 = 'av';
-  static Future init() async =>
-      _preferences = await SharedPreferences.getInstance();
-  static Future setusername(bool isChecked) async =>
-      await _preferences.setBool(key1, isChecked);
-  static bool? getusername() => _preferences.getBool(key1);
-  static Future clear() => _preferences.clear();
-}
-
-class UserSimplePreferences1 {
-  static late SharedPreferences _preferences;
-  static const key2 = 'av1';
-  static Future init() async =>
-      _preferences = await SharedPreferences.getInstance();
-  static Future setusername1(String isChecked1) async =>
-      await _preferences.setString(key2, isChecked1);
-  static String? getusername1() => _preferences.getString(key2);
-  static const key3 = 'av1';
-
-  static Future setusername11(String isChecked11) async =>
-      await _preferences.setString(key3, isChecked11);
-  static String? getusername11() => _preferences.getString(key3);
-  static const key4 = 'av2';
-
-  static Future setusername12(String isChecked12) async =>
-      await _preferences.setString(key4, isChecked12);
-  static String? getusername12() => _preferences.getString(key4);
-  static Future clear() => _preferences.clear();
 }
