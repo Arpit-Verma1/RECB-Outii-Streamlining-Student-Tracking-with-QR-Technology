@@ -30,9 +30,9 @@ class _Qr_GenerateState extends State<Qr_Generate> {
   void initState() {
     super.initState();
     User_id = UserSimplePreferences.getusername() ?? "";
-    // FlutterWindowManager.addFlags(
-    //   FlutterWindowManager.FLAG_SECURE,
-    // );
+    FlutterWindowManager.addFlags(
+      FlutterWindowManager.FLAG_SECURE,
+    );
   }
   int selected_destination = -1;
   @override
