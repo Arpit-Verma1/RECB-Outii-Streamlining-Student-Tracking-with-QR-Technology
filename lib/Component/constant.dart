@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
 ButtonStyle buttonstyle = ButtonStyle(
-    backgroundColor: MaterialStatePropertyAll(Colors.purple),
-    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-    ));
+  backgroundColor: MaterialStatePropertyAll(
+    Color.fromARGB(255, 121, 91, 245),
+  ),
+);
 
-BoxDecoration boxDecoration = BoxDecoration(
+BoxDecoration auth_boxDecoration = BoxDecoration(
   color: Colors.black,
   borderRadius: BorderRadius.only(
     topLeft: Radius.circular(20.0),
@@ -43,9 +41,7 @@ BoxDecoration boxDecoration = BoxDecoration(
     ), //BoxShadow
   ],
 );
-InputBorder textfieldborder = OutlineInputBorder(
-  borderSide: BorderSide(color: Colors.transparent),
-  borderRadius: BorderRadius.all(Radius.circular(
-    10,
-  )),
+OutlineInputBorder Textfieldborder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(10.0),
+  borderSide: BorderSide(color: Colors.black, width: 1),
 );
