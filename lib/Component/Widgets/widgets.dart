@@ -1,8 +1,8 @@
-import 'dart:math';
-
-import 'package:confetti/confetti.dart';
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:outii/Database/Server_and%20Functions.dart';
+import '../../View/User_Data.dart';
 
 class Progressindicator extends StatelessWidget {
   const Progressindicator({Key? key}) : super(key: key);
@@ -52,29 +52,64 @@ class Button extends StatelessWidget {
   }
 }
 
-class Confetti extends StatelessWidget {
-  Confetti({Key? key, required this.angle, this.confetticontroller})
-      : super(key: key);
-  final double angle;
-  final confetticontroller;
-  @override
-  Widget build(BuildContext context) {
-    return ConfettiWidget(
-        confettiController: confetticontroller,
-        shouldLoop: true,
-        emissionFrequency: 0.08,
-        gravity: 0.3,
-        blastDirection: angle,
-        createParticlePath: (size) {
-          final path = Path();
-          path.addPolygon([
-            Offset(20, 5),
-            Offset(8, 39.6),
-            Offset(38, 15.6),
-            Offset(2, 15.6),
-            Offset(32, 39.6),
-          ], true);
-          return path;
-        });
-  }
+Widget Profilephoto(String id, double height) => FutureBuilder(
+      future: FireStoreDataBase().getData(id),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Text(
+            "Something went wrong",
+          );
+        }
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Container(
+            height: height,
+            width: (2 * height) / 3,
+            decoration: BoxDecoration(
+                border: Border.all(width: 1.5),
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    bottomLeft: Radius.circular(10)),
+                color: Colors.white38,
+                image: DecorationImage(
+                    image: NetworkImage(
+                      snapshot.data.toString(),
+                    ),
+                    fit: BoxFit.fill)),
+          );
+        }
+        return const Center(
+            child: CircularProgressIndicator(
+          color: Colors.black,
+        ));
+      },
+    );
+Widget listtile(String text1, String text2) => ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
+      visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+      leading: Text(
+        text1,
+        style: textStyle.copyWith(color: Colors.black),
+      ),
+      title: Text(
+        text2,
+        style: textStyle.copyWith(color: Colors.black),
+      ),
+      dense: true,
+    );
+
+void showsnackbar(String tittle_message, String snack_message, Color color,
+    BuildContext context) {
+  Flushbar(
+    title: tittle_message,
+    message: snack_message,
+    backgroundColor: color,
+    icon: Icon(
+      color == Colors.green ? Icons.check_circle : Icons.clear_outlined,
+      color: Colors.white,
+    ),
+    duration: Duration(seconds: 3),
+    flushbarPosition: FlushbarPosition.BOTTOM,
+    forwardAnimationCurve: Curves.easeIn,
+    reverseAnimationCurve: Curves.easeOut,
+  ).show(context);
 }
