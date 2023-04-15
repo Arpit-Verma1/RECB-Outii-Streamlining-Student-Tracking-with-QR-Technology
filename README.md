@@ -1,108 +1,55 @@
-# RECB OUTII ( Using - Flutter )
+<h1 align =center >RECB OUTII ( Using - Flutter ) </h1>
 <div align="center">
 
-[⬇️Download App](https://drive.google.com/file/d/1DcOdybXeA3ChArVkOBC3uTBQsKAz1csr/view?usp=share_link)
+[⬇️Download App](https://drive.google.com/file/d/1RdfTrP0cdEai84dhuuqccW_hyX00VdlT/view?usp=sharing)
 
-||||
-|:----------------------------------------:|:----------------------------------------:|:-----------------------------------------:|
-| <img src="https://github.com/devicons/devicon/blob/master/icons/androidstudio/androidstudio-original.svg" alt="Android" width="50" height="50"/> </a> <a href="https://www.java.com" target="_blank"> | <img src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg" alt="Android" width="50" height="50"/> </a> <a href="https://www.java.com" target="_blank">  | <img src="https://github.com/rahuldkjain/github-profile-readme-generator/blob/master/src/images/icons/MobileAppDevelopment/dart.svg" alt="Android" width="50" height="50"/> </a> <a href="https://www.java.com" target="_blank">  |
- 
+| Android Studio |Flutter | Dart | Firebase |
+|:----------------------------------------:|:----------------------------------------:|:-----------------------------------------:| :-----------------------------------------: |
+| <img src="https://github.com/devicons/devicon/blob/master/icons/androidstudio/androidstudio-original.svg" alt="Android" width="50" height="50"/>|<img src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg" alt="Android" width="50" height="50"/> |<img src="https://github.com/rahuldkjain/github-profile-readme-generator/blob/master/src/images/icons/MobileAppDevelopment/dart.svg" alt="Android" width="50" height="50"/>|<img src ="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain.svg"/> |
 
 ![0](https://user-images.githubusercontent.com/99536186/215308174-1f0d7303-c2b7-49ec-8688-ef410b8a246c.png)
 </div>
  
- ## About this App🤔
+ <h1 align="center"> About this App🤔</h1>
  <div align="center">
- ✍️ Here is RECB Outii". Just select where are going and and show your QR Code and Go.
+ ✍️ Here is RECB Outii". Just select where are going and show your QR Code and Go.
  </div>
  
- ## Tech Stacks Used💡 
+ <h1 align ="center">Tech Stacks Used💡</h1> 
 
-1. Flutter
-2. Firebase
-3. RealTime Database
+1. **Flutter**
+2. **Firebase**
+<br>
 
-## Repo Status
+<h1 align="center"> Project Admin  🤵 </h1>
 
 <div align="center">
-
-![GitHub PR Open](https://img.shields.io/github/issues-pr/arpitvermaofficial/RECB-Outii?style=for-the-badge&color=aqua)
-![GitHub PR closed](https://img.shields.io/github/issues-pr-closed-raw/arpitvermaofficial/RECB-Outii?style=for-the-badge&color=blue)
-![GitHub language count](https://img.shields.io/github/languages/count/arpitvermaofficial/RECB-Outii?style=for-the-badge&color=brightgreen)
-<br><br>
-
-## How to contribute:
-
-- Drop a :star: on the Github repository (optional)<br/>
-
-- Before Contribute Please read [CONTRIBUTING.md](https://github.com/arpitvermaofficial/RECB-Outii/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/arpitvermaofficial/RECB-Outii/blob/main/CODE_OF_CONDUCT.md)
-
-- Create an issue of the project or a feature you would like to add in the project and get the task assigned to you.(Issue can be any bug fixes or any feature you want to add in this project).
-
-- Fork the repo to your Github.<br/>
-
-- Clone the Repo by going to your local Git Client in a particular local folder in your local machine by using this command with your forked repository link in place of below given link: <br/>
-  `git clone https://github.com/arpitvermaofficial/RECB-Outii`
-- Create a branch using below command.
-  `git branch <your branch name>`
-- Checkout to your branch.
-  `git checkout <your branch name>`
-- Add your code in your local machine folder.
-  `git add . `
-- Commit your changes.
-  `git commit -m"<add your message here>"`
-- Push your changes.
-  `git push --set-upstream origin <your branch name>`
-
-- Make a pull request! (compare your branch with the owner main branch)
-
-# Contributors
-
-<br>
-<div>
-<h1 align="center">
- <b>Thanks to these amazing people
-<h1>
-<a href="https://github.com/arpitvermaofficial/RECB-Outii/contributors">
-  <img src="https://contrib.rocks/image?repo=arpitvermaofficial/RECB-Outii&&max=817" />
-</a>
-</div>
-
-
-
-<h1 align=center> Project Admin  🤵 </h1>
-
-<p align=center>
   <img src="https://user-images.githubusercontent.com/99536186/223214218-dd2464a7-2b54-45d4-aa18-629b93f37c92.png" width="100" height="100">
-  </p>
+ 
   <br>
   <a target="_blank"href="https://linkedin.com/in/arpit-v-1a4205220"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="arpitv747@gmail.com"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 
 </p>
+ </div>
   
   <br>
+  <h1 align ="center">📸 Screenshots!</h1>
   
-  ## 📸 Screenshots!
- 
-
-
-
-
-
-||||
+| login Screen | Splash Screen | Forgot Passwprd Screen |
 |:------------------------------------------------:|:------------------------------------------------:|:------------------------------------------------:|
-| ![1](https://user-images.githubusercontent.com/99536186/224078205-8d14a9ae-3075-4628-b8b4-2e1391edef26.jpeg) | ![2](https://user-images.githubusercontent.com/99536186/224078319-cecdc11c-1886-4fad-8531-f95001d17926.jpeg) |![3](https://user-images.githubusercontent.com/99536186/215308207-327e39c4-82d8-4d7b-80cc-52e18f59e28a.png)|
-| ![4](https://user-images.githubusercontent.com/99536186/215308208-7f256a6a-2859-41a2-8297-116996ef49dd.png)| ![5](https://user-images.githubusercontent.com/99536186/215308210-1f077086-6e3a-46c5-97f1-20049ff71474.png) | ![6](https://user-images.githubusercontent.com/99536186/218145697-4e37961b-8f49-4078-8101-cde0076223b3.jpeg) |
-| ![7](https://user-images.githubusercontent.com/99536186/223212119-0bf8f820-4a1d-49a8-8d94-1168619cc896.jpeg) | ![9](https://user-images.githubusercontent.com/99536186/215308197-43dbb98f-b70b-45c7-84fb-49c39e040080.jpeg) | ![8](https://user-images.githubusercontent.com/99536186/223211247-21077c6c-2013-4cc1-bb2d-e7618d1902a1.jpeg) |                                                                                                                                          
-                                                                                                                                           
-
- 
-
+| ![1](https://user-images.githubusercontent.com/99536186/232190748-9847b1ef-855e-46cf-9329-4e04662e63ee.jpeg) | ![2](https://user-images.githubusercontent.com/99536186/232191524-9ed5aaf3-8d53-4bc0-8ef7-080de0332344.jpeg) | ![3](https://user-images.githubusercontent.com/99536186/232190740-a36ff5d3-061a-4106-83bf-733118b193da.jpeg) |
+| QR Genrate Screen | User Data Scren | QR Code |
+| ![4](https://user-images.githubusercontent.com/99536186/232190753-4fd55624-9e42-4d01-8b92-5f6d386c3e89.jpeg) | ![5](https://user-images.githubusercontent.com/99536186/232190762-33205d37-20bb-4947-9ed3-5c9267712401.jpeg) | ![6](https://user-images.githubusercontent.com/99536186/232190737-00890d5c-13ef-4054-b0e9-11b5fee26e6d.jpeg) |  
+| User Data Card | Drawer  | QR Scan |
+| ![7](https://user-images.githubusercontent.com/99536186/232190774-7e28403f-dba2-4e35-86ca-fb4eeb94d478.jpeg) | ![8](https://user-images.githubusercontent.com/99536186/232190756-3130142e-f238-43f7-af4f-a7c57c431549.jpeg) | ![9](https://user-images.githubusercontent.com/99536186/232190778-3242d1a9-17c2-4a7c-a085-c0e568dda120.jpeg) |
+| Stidents Data | Student Profile | Student Monthly Frequency Chart View |
+| ![10](https://user-images.githubusercontent.com/99536186/232190769-706fa7bd-9aaa-46a7-9103-6b377e642a0f.jpeg) | ![11](https://user-images.githubusercontent.com/99536186/232190773-ddcafaf0-e7f1-433d-8022-878b98708f7d.jpeg) |![12](https://user-images.githubusercontent.com/99536186/232191482-bd1f2071-39fb-47aa-8a75-b1fb7673ddde.jpeg) |
 
  <br>
  
-![RECB_Outii](https://user-images.githubusercontent.com/99536186/215308629-918098e8-3030-4067-bc37-bbc47342dca8.gif)|
+![RECB_Outii](https://user-images.githubusercontent.com/99536186/215308629-918098e8-3030-4067-bc37-bbc47342dca8.gif) 
+
 
   
   
