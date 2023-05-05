@@ -71,9 +71,9 @@ Widget Profilephoto(String id, double height) => FutureBuilder(
                     bottomLeft: Radius.circular(10)),
                 color: Colors.white38,
                 image: DecorationImage(
-                    image: NetworkImage(
-                      snapshot.data.toString(),
-                    ),
+                    image: NetworkImage(snapshot.data.toString() == ""
+                        ? "https://firebasestorage.googleapis.com/v0/b/auth-92321.appspot.com/o/defalut.png?alt=media&token=fc9415d8-5596-42b7-a6c9-c2e51dd7ccdf"
+                        : snapshot.data.toString()),
                     fit: BoxFit.fill)),
           );
         }
