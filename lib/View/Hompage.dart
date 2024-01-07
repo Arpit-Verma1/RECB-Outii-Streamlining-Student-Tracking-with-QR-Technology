@@ -3,9 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:outii/Component/constant.dart';
+
 import 'package:outii/Shared_Preferences.dart';
 import 'package:outii/routes/rotes_name.dart';
+import '../Utils/Constant.dart';
 import 'Qr_Generate.dart';
 import 'Student_Qr_Scan.dart';
 import 'Students_Data.dart';

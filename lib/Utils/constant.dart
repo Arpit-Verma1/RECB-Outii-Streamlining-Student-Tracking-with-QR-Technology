@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+
+Color purple=Color.fromARGB(255, 121, 91, 245);
 ButtonStyle buttonstyle = ButtonStyle(
   backgroundColor: MaterialStatePropertyAll(
-    Color.fromARGB(255, 121, 91, 245),
+    purple,
   ),
 );
 

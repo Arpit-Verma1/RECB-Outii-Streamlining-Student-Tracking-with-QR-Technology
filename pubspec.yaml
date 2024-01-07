@@ -40,6 +40,9 @@ dependencies:
   url_launcher: ^6.1.5
   firebase_database: ^10.0.10
   intl: ^0.17.0
+  another_flushbar: ^1.12.30
+  image_picker: ^1.0.6
+  cloud_firestore: ^4.14.0
   font_awesome_flutter: ^10.1.0
   flutter_windowmanager: ^0.2.0
   flutter_native_splash: ^2.2.19
@@ -60,6 +63,8 @@ dependencies:
   google_sign_in: ^5.4.2
   google_fonts: ^4.0.3
   rive: ^0.9.1
+  fl_chart: ^0.66.0
+  firebase_storage: ^11.6.0
 
 
 

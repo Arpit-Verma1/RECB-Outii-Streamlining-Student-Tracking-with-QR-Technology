@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:outii/Authentication/View/Screens/authToggle.dart';
+import 'package:outii/Authentication/View/Screens/emailVerify.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
 import 'package:outii/Shared_Preferences.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:outii/routes/routes.dart';
-import 'auth.dart';
-import 'View/emailverify.dart';
+
 import 'firebase_options.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -47,6 +48,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -60,6 +62,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -80,9 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           );
         } else if (snapshot.hasData) {
-          return Verifyemail();
+          return EmailVerify();
         } else {
-          return AuthPage(
+          return AuthTogglePage(
             islogin: true,
           );
         }

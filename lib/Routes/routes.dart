@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:outii/View/Forgot_Password_Page.dart';
+import 'package:outii/Authentication/View/Screens/forgotPassword.dart';
 import 'package:outii/View/Qr_Generate.dart';
-import 'package:outii/View/add%20user.dart';
 import 'package:outii/main.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:outii/View/Hompage.dart';
 import 'package:outii/View/student_previous_data.dart';
+
+import '../View/add_user.dart';
 
 class Routes {
   static Route<dynamic> genrateRoute(RouteSettings settings) {

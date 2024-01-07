@@ -48,14 +48,14 @@ class FireStoreDataBase {
 uploadImage(String id) async {
   final _firebaseStorage = FirebaseStorage.instance;
   final _imagePicker = ImagePicker();
-  PickedFile image;
+   XFile image;
   await Permission.photos.request();
 
   var permissionStatus = await Permission.photos.status;
 
   if (permissionStatus.isGranted) {
     //Select Image
-    image = (await _imagePicker.getImage(source: ImageSource.gallery))!;
+    image = (await _imagePicker.pickImage(source: ImageSource.gallery))!;
     var file = File(image.path);
 
     if (image != null) {

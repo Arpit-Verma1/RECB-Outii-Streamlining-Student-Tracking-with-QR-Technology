@@ -1,7 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:outii/Component/constant.dart';
+
+import '../Utils/Constant.dart';
+
 
 class add_user extends StatefulWidget {
   const add_user({Key? key}) : super(key: key);

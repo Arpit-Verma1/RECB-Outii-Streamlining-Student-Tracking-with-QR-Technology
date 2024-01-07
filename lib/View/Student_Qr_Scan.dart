@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
-import 'package:outii/Component/constant.dart';
 import 'package:outii/Database/Server_and%20Functions.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import 'package:outii/Utils/constant.dart';
 
 TextStyle textStyle = TextStyle(fontWeight: FontWeight.bold);
 

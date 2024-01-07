@@ -4,9 +4,10 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
-import 'package:outii/Component/constant.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:rive/rive.dart';
+
+import '../Utils/Constant.dart';
 
 TextStyle textStyle = GoogleFonts.lobster(
     wordSpacing: 3, fontSize: 30, color: Colors.white, letterSpacing: 2);
