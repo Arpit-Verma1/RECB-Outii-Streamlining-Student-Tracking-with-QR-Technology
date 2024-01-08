@@ -7,6 +7,7 @@ import 'package:outii/Authentication/View/Widgets/authTextFeild.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
 
 import 'package:outii/Utils/constant.dart';
+import 'package:provider/provider.dart';
 import '../../ViewModel/authViewModel.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -20,6 +21,7 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   final emailController = TextEditingController();
+  AuthenticationProvider authentication = AuthenticationProvider();
 
   @override
   void dispose() {
@@ -53,8 +55,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       prefixIcon: Icons.email,
                       isPassword: false),
                   authButton(
-                    function: () =>
-                        Resetpassword(context, emailController.text.trim()),
+                    function: () => authentication.Resetpassword(
+                        context, emailController.text.trim()),
                     buttonName: "Reset Password",
                   ),
                   SizedBox(

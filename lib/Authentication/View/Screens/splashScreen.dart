@@ -7,7 +7,7 @@ import 'package:outii/Component/Widgets/widgets.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:rive/rive.dart';
 
-import '../Utils/Constant.dart';
+import '../../../Utils/Constant.dart';
 
 TextStyle textStyle = GoogleFonts.lobster(
     wordSpacing: 3, fontSize: 30, color: Colors.white, letterSpacing: 2);
@@ -22,22 +22,19 @@ class splash extends StatefulWidget {
 class _splashState extends State<splash> {
   @override
   final user = FirebaseAuth.instance.currentUser;
-   DatabaseReference _dbref=FirebaseDatabase.instance.ref();
-  late bool User_UI=false;
+  DatabaseReference _dbref = FirebaseDatabase.instance.ref();
+  late bool User_UI = false;
+
   void initState() {
     super.initState();
     _readdb();
     Future.delayed(Duration(seconds: 1), () {
       _readdb();
-      Timer(Duration(seconds:1 ), () {
-        Navigator.pushReplacementNamed(
-            context,
-            RouteName.sample,
-            arguments: {"show": User_UI}
-        );
+      Timer(Duration(seconds: 1), () {
+        Navigator.pushReplacementNamed(context, RouteName.sample,
+            arguments: {"show": User_UI});
       });
     });
-
   }
 
   Widget build(BuildContext context) {
@@ -83,17 +80,20 @@ class _splashState extends State<splash> {
               ))),
     );
   }
+
   _readdb() {
     _dbref.child('User').once().then((DatabaseEvent databaseEvent) {
       setState(() {
-        if (databaseEvent.snapshot.value.toString().contains("${user!.email!}")) {
+        if (databaseEvent.snapshot.value
+            .toString()
+            .contains("${user!.email!}")) {
           setState(() {
             User_UI = true;
           });
           setState(() {});
         } else {
           setState(() {
-            User_UI= false;
+            User_UI = false;
           });
           setState(() {});
         }

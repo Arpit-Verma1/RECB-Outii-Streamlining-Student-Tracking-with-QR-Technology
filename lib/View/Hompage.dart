@@ -3,14 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:outii/Shared_Preferences.dart';
 import 'package:outii/routes/rotes_name.dart';
 import '../Utils/Constant.dart';
-import 'Qr_Generate.dart';
-import 'Student_Qr_Scan.dart';
-import 'Students_Data.dart';
-import 'User_Data.dart';
+import '../Students/View/Screens/Qr_Generate.dart';
+import '../Admin/View/Screens/Student_Qr_Scan.dart';
+import '../Admin/View/Screens/Students_Data.dart';
+import '../Students/View/Screens/User_Data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri faceboook_url = Uri.parse('https://www.facebook.com/recbup/');

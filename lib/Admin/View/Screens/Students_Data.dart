@@ -4,9 +4,9 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/routes/rotes_name.dart';
-import 'package:outii/View/student_previous_data.dart';
-import '../Utils/Constant.dart';
-import '../speechapi.dart';
+import 'package:outii/Admin/View/Screens/student_previous_data.dart';
+import '../../../Utils/Constant.dart';
+import '../../../speechapi.dart';
 
 const TextStyle studentdatastyle = TextStyle(
   fontSize: 12,

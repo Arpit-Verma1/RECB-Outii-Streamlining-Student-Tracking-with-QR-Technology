@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -5,10 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/Authentication/View/Screens/authToggle.dart';
 import 'package:outii/Authentication/View/Screens/emailVerify.dart';
+import 'package:outii/Authentication/ViewModel/authViewModel.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
 import 'package:outii/Shared_Preferences.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:outii/routes/routes.dart';
+import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -41,8 +44,15 @@ Future<void> main() async {
   });
 
   await UserSimplePreferences.init();
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) =>AuthenticationProvider()),
+    ],
+    child: MyApp(),
+  ));
 }
+
+
 
 final navigatorKey = GlobalKey<NavigatorState>();
 

@@ -17,7 +17,7 @@ class _AuthTogglePageState extends State<AuthTogglePage> {
   @override
   Widget build(BuildContext context) => isLogin
       ? Login(onclickedsignup: toggle)
-      : SignUp(
+      : SignUpPage(
           onclickedsignin: toggle,
         );
 

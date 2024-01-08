@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:outii/View/student_previous_data.dart';
+import 'package:outii/Admin/View/Screens/student_previous_data.dart';
 
 class Bar_Chart extends StatelessWidget {
   const Bar_Chart({Key? key}) : super(key: key);

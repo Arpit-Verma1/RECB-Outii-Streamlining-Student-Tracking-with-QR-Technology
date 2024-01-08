@@ -51,34 +51,35 @@ class _Qr_GenerateState extends State<Qr_Generate> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              selected_destination = index;
-                              destination = destination_list[index];
-                              custom_destinatinaton_check = index == 4
-                                  ? !custom_destinatinaton_check
-                                  : false;
-                            });
-                          },
-                          child: Text(destination_list[index],style: TextStyle(fontWeight: FontWeight.bold),),
-                          style: ElevatedButton.styleFrom(
-                              primary: selected_destination == index
-                                  ? Color.fromARGB(255, 64, 206, 104)
-                                  :  Color.fromARGB(255, 121, 91, 245),),
-                        );
-                      },
-                      separatorBuilder: (context, index) {
-                        return SizedBox(
-                          width: 10,
-                        );
-                      },
-                      itemCount: 5)),
+              Container(
+                height: size.height * 0.05,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            selected_destination = index;
+                            destination = destination_list[index];
+                            custom_destinatinaton_check = index == 4
+                                ? !custom_destinatinaton_check
+                                : false;
+                          });
+                        },
+                        child: Text(destination_list[index],style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        style: ElevatedButton.styleFrom(
+                            primary: selected_destination == index
+                                ? Color.fromARGB(255, 64, 206, 104)
+                                :  Color.fromARGB(255, 121, 91, 245),),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        width: 10,
+                      );
+                    },
+                    itemCount: 5),
+              ),
               Visibility(
                 visible: custom_destinatinaton_check,
                 child: TextField(

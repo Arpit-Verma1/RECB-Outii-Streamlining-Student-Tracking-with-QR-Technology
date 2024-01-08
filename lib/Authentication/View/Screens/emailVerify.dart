@@ -6,7 +6,8 @@ import 'package:outii/Authentication/View/Widgets/authButton.dart';
 import 'package:outii/Authentication/View/Widgets/authHeader.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
 import 'package:outii/Utils/constant.dart';
-import '../../../View/Splash_Screen.dart';
+import 'package:provider/provider.dart';
+import 'splashScreen.dart';
 import '../../ViewModel/authViewModel.dart';
 
 class EmailVerify extends StatefulWidget {
@@ -17,39 +18,21 @@ class EmailVerify extends StatefulWidget {
 }
 
 class _EmailVerifyState extends State<EmailVerify> {
-  bool isverify = false;
-  bool resendemail = false;
-  Timer? timer;
-
   @override
   void initState() {
-    super.initState();
-    isverify = FirebaseAuth.instance.currentUser!.emailVerified;
-
-    if (!isverify) {
-      sendverification(context);
-      timer = Timer.periodic(Duration(seconds: 3), (_) => checkemailverified());
+    // TODO: implement initState
+    context.read<AuthenticationProvider>().checkemailverified();
+    if (context.read<AuthenticationProvider>().isverify == false) {
+      context.read<AuthenticationProvider>().sendverification(context);
+      context.read<AuthenticationProvider>().Timerfuc();
     }
-  }
-
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
-  }
-
-  Future checkemailverified() async {
-    await FirebaseAuth.instance.currentUser!.reload();
-    setState(() {
-      isverify = FirebaseAuth.instance.currentUser!.emailVerified;
-    });
-    if (isverify) timer?.cancel();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return isverify
+    return context.watch<AuthenticationProvider>().isverify == true
         ? splash()
         : SafeArea(
             child: Container(
@@ -74,7 +57,15 @@ class _EmailVerifyState extends State<EmailVerify> {
                                 wordSpacing: 2),
                           ),
                           authButton(
-                            function: () => sendverification(context),
+                            function: () {
+                              if (context
+                                      .watch<AuthenticationProvider>()
+                                      .resendMail ==
+                                  true)
+                                context
+                                    .read<AuthenticationProvider>()
+                                    .sendverification(context);
+                            },
                             buttonName: "Resend Verification Email",
                             fontSize: 15,
                           ),

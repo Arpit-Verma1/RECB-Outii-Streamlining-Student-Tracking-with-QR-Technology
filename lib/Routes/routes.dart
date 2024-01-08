@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:outii/Admin/View/Screens/student_previous_data.dart';
 import 'package:outii/Authentication/View/Screens/forgotPassword.dart';
-import 'package:outii/View/Qr_Generate.dart';
+import 'package:outii/Students/View/Screens/Qr_Generate.dart';
 import 'package:outii/main.dart';
 import 'package:outii/routes/rotes_name.dart';
 import 'package:outii/View/Hompage.dart';
-import 'package:outii/View/student_previous_data.dart';
-
 import '../View/add_user.dart';
 
 class Routes {

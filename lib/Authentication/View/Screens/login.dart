@@ -5,6 +5,7 @@ import 'package:outii/Authentication/View/Widgets/authHeader.dart';
 import 'package:outii/Authentication/View/Widgets/authTextFeild.dart';
 import 'package:outii/Authentication/View/Widgets/authToggleButton.dart';
 import 'package:outii/routes/rotes_name.dart';
+import 'package:provider/provider.dart';
 import '../../../Utils/Constant.dart';
 import '../../ViewModel/authViewModel.dart';
 
@@ -21,6 +22,7 @@ class _LoginState extends State<Login> {
   @override
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+  AuthenticationProvider authentication = AuthenticationProvider();
 
   @override
   void dispose() {
@@ -68,7 +70,7 @@ class _LoginState extends State<Login> {
                         prefixIcon: Icons.lock,
                         isPassword: true),
                     authButton(
-                        function: () => Signin(
+                        function: () => authentication.Signin(
                               context,
                               emailcontroller.text.trim(),
                               passwordcontroller.text.trim(),

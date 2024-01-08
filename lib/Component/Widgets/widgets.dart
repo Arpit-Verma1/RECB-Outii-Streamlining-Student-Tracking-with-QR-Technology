@@ -2,7 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:outii/Database/Server_and%20Functions.dart';
-import '../../View/User_Data.dart';
+import '../../Students/View/Screens/User_Data.dart';
 
 class Progressindicator extends StatelessWidget {
   const Progressindicator({Key? key}) : super(key: key);

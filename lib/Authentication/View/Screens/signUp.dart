@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/Authentication/View/Widgets/authButton.dart';
 import 'package:outii/Authentication/View/Widgets/authHeader.dart';
 import 'package:outii/Component/Widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 import 'package:rive/rive.dart';
 
@@ -14,19 +15,19 @@ import '../../ViewModel/authViewModel.dart';
 import '../Widgets/authTextFeild.dart';
 import '../Widgets/authToggleButton.dart';
 
-class SignUp extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   final Function() onclickedsignin;
 
-  const SignUp({Key? key, required this.onclickedsignin})
-      : super(key: key);
+  const SignUpPage({Key? key, required this.onclickedsignin}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpPageState extends State<SignUpPage> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+  AuthenticationProvider authentication = AuthenticationProvider();
   bool pass = true;
 
   @override
@@ -67,7 +68,7 @@ class _SignUpState extends State<SignUp> {
                             prefixIcon: Icons.lock,
                             isPassword: true),
                         authButton(
-                            function: () => SignUp(
+                            function: () => authentication.SignUp(
                                 context,
                                 emailcontroller.text.trim(),
                                 passwordcontroller.text.trim()),
