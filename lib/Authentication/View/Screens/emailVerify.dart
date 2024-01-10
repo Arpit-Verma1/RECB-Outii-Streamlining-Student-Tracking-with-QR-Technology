@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/Authentication/View/Widgets/authButton.dart';
 import 'package:outii/Authentication/View/Widgets/authHeader.dart';
-import 'package:outii/Component/Widgets/widgets.dart';
 import 'package:outii/Utils/constant.dart';
 import 'package:provider/provider.dart';
 import 'splashScreen.dart';

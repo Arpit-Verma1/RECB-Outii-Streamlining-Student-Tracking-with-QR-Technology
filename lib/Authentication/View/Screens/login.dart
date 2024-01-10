@@ -4,7 +4,7 @@ import 'package:outii/Authentication/View/Widgets/authButton.dart';
 import 'package:outii/Authentication/View/Widgets/authHeader.dart';
 import 'package:outii/Authentication/View/Widgets/authTextFeild.dart';
 import 'package:outii/Authentication/View/Widgets/authToggleButton.dart';
-import 'package:outii/routes/rotes_name.dart';
+import 'package:outii/routes/routes_name.dart';
 import 'package:provider/provider.dart';
 import '../../../Utils/Constant.dart';
 import '../../ViewModel/authViewModel.dart';

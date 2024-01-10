@@ -1,18 +1,24 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import '../../Component/Widgets/widgets.dart';
+import '../../Core/Widgets/customSnackBar.dart';
+import '../../Core/Widgets/progressIndicaor.dart';
+import '../../Routes/routes_name.dart';
+import '../../Utils/Shared_Preferences.dart';
 import '../../main.dart';
 
 class AuthenticationProvider with ChangeNotifier {
   bool isVerify = false;
   Timer? timer;
   bool resendMail = false;
+  bool isAdminLogin = false;
 
   bool get isverify => isVerify;
 
   bool get resendmail => resendMail;
+
+  bool get isadminlogin => isAdminLogin;
 
   Future Signin(BuildContext context, String Email, String Password) async {
     bool directlogin = false;
@@ -94,10 +100,28 @@ class AuthenticationProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future logout(BuildContext context) async {
+    await UserSimplePreferences.clear();
+    FirebaseAuth.instance.signOut().then((value) =>
+        Navigator.pushReplacementNamed(context, RouteName.My_HomePage));
+    FirebaseAuth.instance.signOut();
+  }
+
   void Timerfuc() {
     timer = Timer.periodic(Duration(seconds: 3), (_) {
       checkemailverified();
       if (isverify == true) timer?.cancel();
+    });
+  }
+
+  void isAdmin() {
+    final user = FirebaseAuth.instance.currentUser;
+    DatabaseReference _dbref = FirebaseDatabase.instance.ref();
+    _dbref.child('Admin').once().then((DatabaseEvent databaseEvent) {
+      if (databaseEvent.snapshot.value.toString().contains("${user!.email!}")) {
+        isAdminLogin = true;
+      }
+      notifyListeners();
     });
   }
 }

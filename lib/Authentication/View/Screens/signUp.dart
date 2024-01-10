@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:outii/Authentication/View/Widgets/authButton.dart';
 import 'package:outii/Authentication/View/Widgets/authHeader.dart';
-import 'package:outii/Component/Widgets/widgets.dart';
-import 'package:provider/provider.dart';
-
-import 'package:rive/rive.dart';
-
 import '../../../Utils/constant.dart ';
-import '../../../main.dart';
 import '../../ViewModel/authViewModel.dart';
 import '../Widgets/authTextFeild.dart';
 import '../Widgets/authToggleButton.dart';

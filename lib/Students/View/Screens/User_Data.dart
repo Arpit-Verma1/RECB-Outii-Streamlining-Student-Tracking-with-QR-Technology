@@ -3,10 +3,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:outii/Component/Widgets/widgets.dart';
+import 'package:outii/Core/Widgets/studentProfileCard.dart';
 import 'package:outii/Database/Server_and%20Functions.dart';
-import 'package:outii/Shared_Preferences.dart';
+import 'package:outii/Utils/Shared_Preferences.dart';
+import 'package:outii/Utils/constant.dart';
+
+import '../../../Admin/View/Widget/studentListTile.dart';
+import '../../../Core/Widgets/customSnackBar.dart';
 
 TextStyle textStyle =
     TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black);
@@ -19,7 +22,7 @@ class user_data extends StatefulWidget {
 }
 
 class _user_dataState extends State<user_data> {
-  String User = UserSimplePreferences.getusername()??"";
+  String User = UserSimplePreferences.getusername() ?? "";
   String Branch = "";
   String phone = "";
   String Name = "";
@@ -31,6 +34,7 @@ class _user_dataState extends State<user_data> {
   final user = FirebaseAuth.instance.currentUser;
   final controller = TextEditingController();
   final formGlobalKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -55,26 +59,29 @@ class _user_dataState extends State<user_data> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            listtile("Name", "${Name.toUpperCase()}"),
-            listtile("Branch", "$branch"),
-            listtile(
-              "Timein",
-              student['Timein'],
+            StudentListTile(
+              text1: "Name",
+              text2: "${Name.toUpperCase()}",
             ),
-            listtile(
-              "Timeout",
-              student['Timeout'],
+            StudentListTile(text1: "Branch", text2: "$branch"),
+            StudentListTile(
+              text1: "Timein",
+              text2: student['Timein'],
             ),
-            listtile(
-              "Purpose",
-              student['Where'],
+            StudentListTile(
+              text1: "Timeout",
+              text2: student['Timeout'],
+            ),
+            StudentListTile(
+              text1: "Purpose",
+              text2: student['Where'],
             ),
             Row(children: [
               SizedBox(
                   width: MediaQuery.of(context).size.width * 0.4,
-                  child: listtile(
-                    "Phone",
-                    student['Phone'],
+                  child: StudentListTile(
+                    text1: "Phone",
+                    text2: student['Phone'],
                   )),
               IconButton(
                   onPressed: () {
@@ -96,11 +103,7 @@ class _user_dataState extends State<user_data> {
             child: Center(
               child: Text(
                 "Fill Your Phone Number To Generate\n QR Code And See Your Details",
-                style: GoogleFonts.lobster(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    letterSpacing: 2,
-                    color: Colors.black),
+                style: bigLobster,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -124,13 +127,18 @@ class _user_dataState extends State<user_data> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(children: [
-                        Profilephoto("$Name$roll_no_and_year$Branch", size.height * 0.2,),
+                        StudentProfileCard(
+                          id: "$Name$roll_no_and_year$Branch",
+                          height: size.height * 0.2,
+                        ),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black12),
-                            onPressed: () async{
-                              await uploadImage("$Name$roll_no_and_year$Branch");
-                              showsnackbar("Done", "Successfully Upload",Colors.green, context);
+                            onPressed: () async {
+                              await uploadImage(
+                                  "$Name$roll_no_and_year$Branch");
+                              showsnackbar("Done", "Successfully Upload",
+                                  Colors.green, context);
                               setState(() {});
                             },
                             child: Text(
@@ -156,7 +164,6 @@ class _user_dataState extends State<user_data> {
                       ),
                     ]),
               ),
-
             ]),
           );
   }

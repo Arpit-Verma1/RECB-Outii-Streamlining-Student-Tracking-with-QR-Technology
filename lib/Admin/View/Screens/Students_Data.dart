@@ -3,10 +3,10 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:outii/routes/rotes_name.dart';
+import 'package:outii/Utils/constant.dart';
+import 'package:outii/routes/routes_name.dart';
 import 'package:outii/Admin/View/Screens/student_previous_data.dart';
-import '../../../Utils/Constant.dart';
-import '../../../speechapi.dart';
+import '../../ViewModel/speechapi.dart';
 
 const TextStyle studentdatastyle = TextStyle(
   fontSize: 12,
@@ -190,15 +190,15 @@ class _StudentsdataState extends State<Studentsdata>  with TickerProviderStateMi
           children: [
             Text(
               "Time-In",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 20),
+              style: regLobster,
             ),
             Text(
               "Student Details",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 22),
+              style: regLobster,
             ),
             Text(
               "Time-Out",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 20),
+              style: regLobster,
             )
           ],
         ),

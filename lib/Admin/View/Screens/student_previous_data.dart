@@ -2,13 +2,16 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:outii/Component/Widgets/widgets.dart';
+import 'package:outii/Admin/View/Widget/studentListTile.dart';
+import 'package:outii/Core/Widgets/studentProfileCard.dart';
 import 'package:outii/Userjson.dart';
 import 'package:fl_chart/fl_chart.dart';
-import '../../../Bar_Chart.dart';
+import 'package:outii/Utils/constant.dart';
+import '../Widget/Bar_Chart.dart';
 import 'package:intl/intl.dart';
 
 TextStyle textStyle = TextStyle(fontSize: 13, fontWeight: FontWeight.bold);
+
 List<BarChartGroupData> get barGroups => barGroups1;
 List<int> value = List<int>.filled(31, 0, growable: false);
 List<String> dates = [];
@@ -19,6 +22,7 @@ class Student_previous_data extends StatefulWidget {
       : super(key: key);
   final String Collection;
   final String Phone_No;
+
   @override
   State<Student_previous_data> createState() => _Student_previous_dataState();
 }
@@ -32,6 +36,7 @@ class _Student_previous_dataState extends State<Student_previous_data>
   bool recollect_bardata = true;
   bool change_bardata = true;
   bool chart_view = true;
+
   // List of items in our dropdown menu
   var items = [
     'Jan',
@@ -178,7 +183,7 @@ class _Student_previous_dataState extends State<Student_previous_data>
                       " " +
                       dropdownvalue +
                       " Month Frequency Chart",
-                  style: GoogleFonts.lobster(color: Colors.black, fontSize: 20),
+                  style: regLobster,
                 ),
                 DropdownButton(
                   menuMaxHeight: 300,
@@ -245,7 +250,7 @@ class _Student_previous_dataState extends State<Student_previous_data>
               "${widget.Collection.substring(0, widget.Collection.length - 7)} "
                       .toUpperCase() +
                   " Profile",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 20),
+              style: regLobster,
             ),
             Container(
               width: size.width * 0.8,
@@ -261,33 +266,36 @@ class _Student_previous_dataState extends State<Student_previous_data>
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Profilephoto(widget.Collection, size.height * 0.17),
+                    StudentProfileCard(
+                      id: widget.Collection,
+                      height: size.height * 0.17,
+                    ),
                     Container(
                         width: size.width * 0.45,
                         child: Column(
                           children: [
-                            listtile(
-                              "Name",
-                              widget.Collection.substring(
+                            StudentListTile(
+                              text1: "Name",
+                              text2: widget.Collection.substring(
                                       0, widget.Collection.length - 7)
                                   .toUpperCase(),
                             ),
-                            listtile(
-                              "Branch",
-                              widget.Collection.substring(
+                            StudentListTile(
+                              text1: "Branch",
+                              text2: widget.Collection.substring(
                                 widget.Collection.length - 2,
                               ).toUpperCase(),
                             ),
-                            listtile(
-                              "Roll No.",
-                              widget.Collection.substring(
+                            StudentListTile(
+                              text1: "Roll No.",
+                              text2: widget.Collection.substring(
                                       widget.Collection.length - 4,
                                       widget.Collection.length - 2)
                                   .toUpperCase(),
                             ),
-                            listtile(
-                              "Phone No.",
-                              widget.Phone_No.toUpperCase(),
+                            StudentListTile(
+                              text1: "Phone No.",
+                              text2: widget.Phone_No.toUpperCase(),
                             )
                           ],
                         )),
@@ -300,15 +308,15 @@ class _Student_previous_dataState extends State<Student_previous_data>
           children: [
             Text(
               "Time-In",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 20),
+              style: regLobster,
             ),
             Text(
               "Purpose",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 22),
+              style: regLobster,
             ),
             Text(
               "Time-Out",
-              style: GoogleFonts.lobster(color: Colors.black, fontSize: 20),
+              style: regLobster,
             )
           ],
         ),
