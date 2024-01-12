@@ -137,8 +137,8 @@ class _user_dataState extends State<user_data> {
                             onPressed: () async {
                               await uploadImage(
                                   "$Name$roll_no_and_year$Branch");
-                              showsnackbar("Done", "Successfully Upload",
-                                  Colors.green, context);
+                              successSnackbar("Done", "Successfully Upload",
+                                   context);
                               setState(() {});
                             },
                             child: Text(

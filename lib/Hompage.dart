@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'Authentication/View/Widgets/authButton.dart';
 import 'Authentication/ViewModel/authViewModel.dart';
 import 'Students/View/Screens/Qr_Generate.dart';
-import 'Admin/View/Screens/Student_Qr_Scan.dart';
+import 'Admin/View/Screens/Qr_Scan.dart';
 import 'Admin/View/Screens/Students_Data.dart';
 import 'Students/View/Screens/User_Data.dart';
 import 'package:url_launcher/url_launcher.dart';

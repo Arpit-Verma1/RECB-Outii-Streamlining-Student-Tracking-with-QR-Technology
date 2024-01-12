@@ -13,11 +13,8 @@ class AuthenticationProvider with ChangeNotifier {
   Timer? timer;
   bool resendMail = false;
   bool isAdminLogin = false;
-
   bool get isverify => isVerify;
-
   bool get resendmail => resendMail;
-
   bool get isadminlogin => isAdminLogin;
 
   Future Signin(BuildContext context, String Email, String Password) async {
@@ -32,7 +29,7 @@ class AuthenticationProvider with ChangeNotifier {
     } on FirebaseAuthException catch (e) {
       directlogin = true;
       print(e);
-      showsnackbar("Error Occured", e.toString(), Colors.red, context);
+      errorSnackbar("Error Occured", e.toString(), context);
     }
     Future.delayed(Duration(seconds: directlogin ? 3 : 0), () {
       navigatorKey.currentState!.popUntil((route) => route.isFirst);
@@ -46,21 +43,21 @@ class AuthenticationProvider with ChangeNotifier {
         builder: (context) => Center(child: Progressindicator()));
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: Email);
-      showsnackbar("Done", 'Password reset email sent', Colors.green, context);
+      successSnackbar("Done", 'Password reset email sent', context);
       Future.delayed(Duration(seconds: 3), () {
         Navigator.of(context).popUntil((route) => route.isFirst);
       });
     } on FirebaseAuthException catch (e) {
       print(e);
-      showsnackbar("Error Occured", e.toString(), Colors.red, context);
+      errorSnackbar("Error Occured", e.toString(), context);
       Navigator.of(context).pop();
     }
   }
 
   Future SignUp(BuildContext context, String Email, String Password) async {
     if (!Email.contains("@recb.ac.in")) {
-      showsnackbar("Error Occured", "Please use your college email id",
-          Colors.red, context);
+      errorSnackbar(
+          "Error Occured", "Please use your college email id", context);
       return;
     }
     bool directlogin = false;
@@ -74,7 +71,7 @@ class AuthenticationProvider with ChangeNotifier {
     } on FirebaseAuthException catch (e) {
       directlogin = true;
       print(e);
-      showsnackbar("Error Occured", e.toString(), Colors.red, context);
+      errorSnackbar("Error Occured", e.toString(), context);
     }
     Future.delayed(Duration(seconds: directlogin ? 3 : 0), () {
       navigatorKey.currentState!.popUntil((route) => route.isFirst);
@@ -89,7 +86,7 @@ class AuthenticationProvider with ChangeNotifier {
       await Future.delayed(Duration(seconds: 4));
       resendMail = true;
     } catch (e) {
-      showsnackbar("Error Occured", e.toString(), Colors.red, context);
+      errorSnackbar("Error Occured", e.toString(), context);
     }
     notifyListeners();
   }

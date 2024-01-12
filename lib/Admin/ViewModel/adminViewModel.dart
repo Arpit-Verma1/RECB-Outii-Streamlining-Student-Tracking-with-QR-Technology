@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
+import 'package:outii/Admin/ViewModel/speechapi.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../../Core/Widgets/customSnackBar.dart';
 import '../Model/firestoreStudentModel.dart';
@@ -22,6 +23,7 @@ class AdminProvider with ChangeNotifier {
   String Student_Going_Place = "";
   bool send_mail_parents = false;
   String mail_message = "";
+  String searchFieldText = "";
   QRViewController? qrcontroller;
   Barcode? BarCode;
   List<String> warden1 = ['kingarpit268@gmail.com'];
@@ -29,8 +31,10 @@ class AdminProvider with ChangeNotifier {
   List<String> warden3 = ['arpitverma0249@gmail.com'];
   List<String> warden4 = ['kingarpitverma@gmail.com'];
   List<String> sms_phone_numbers = [];
+  bool isListening = false;
+  TextEditingController Controller = TextEditingController();
   final qrkey = GlobalKey(debugLabel: 'QR');
-  DatabaseReference reference_realtime_database =
+  DatabaseReference dbref =
       FirebaseDatabase.instance.ref();
 
   GlobalKey get qrKey => qrkey;
@@ -154,13 +158,17 @@ class AdminProvider with ChangeNotifier {
           where: Student_Going_Place);
       await docuser_firestore.set(firestoreStudentModel.toJson());
       final realtimeDBStudentModel = RealtimeDBStudentModel(
-          name: DatabaseId,
+          name: Student_Name,
           timein: Current_Time(),
           timeout: "---------------",
           phone: Student_parents_phone_no,
-          where: Student_Going_Place);
+          where: Student_Going_Place,
+          branch: Student_Branch,
+          batch: Student_current_Year.toString(),
+          rollno: Student_Roll_No
+      );
 
-      reference_realtime_database
+      dbref
           .child('Students')
           .child(DatabaseId)
           .update(realtimeDBStudentModel.toJson());
@@ -179,14 +187,14 @@ class AdminProvider with ChangeNotifier {
                     : warden4.remove(Student_parents_mail_id);
       }
     } catch (e) {
-      showsnackbar("Error Occured", e.toString(), Colors.red, context);
+      errorSnackbar("Error Occured", e.toString(), context);
     }
   }
 
   Check_In() async {
     String DatabaseId =
         "${Student_Name.toLowerCase()}${Student_current_Year}0$Student_Roll_No$Student_Branch";
-    reference_realtime_database.child('Students').child(DatabaseId).update({
+    dbref.child('Students').child(DatabaseId).update({
       'Timeout': "${Current_Time()}",
     });
     String checkOutTime = await CheckOutTime(DatabaseId);
@@ -233,7 +241,7 @@ class AdminProvider with ChangeNotifier {
         sendDirect: true,
       );
     } catch (error) {
-      showsnackbar("Error Occured", error.toString(), Colors.red, context);
+      errorSnackbar("Error Occured", error.toString(), context);
     }
   }
 
@@ -242,5 +250,15 @@ class AdminProvider with ChangeNotifier {
         FirebaseDatabase.instance.ref("Students/$DatabaseId/Timein");
     DatabaseEvent event = await reference.once();
     return event.snapshot.value;
+  }
+
+  Future<void> togglerecording() async {
+    Speechapi.togglerecording(onresult: (text) {
+      Controller.text = text;
+      notifyListeners();
+    }, onlistening: (islistening) {
+      isListening = islistening;
+      notifyListeners();
+    });
   }
 }

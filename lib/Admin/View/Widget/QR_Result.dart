@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:outii/Admin/ViewModel/adminViewModel.dart';
 import 'package:outii/Authentication/View/Widgets/authButton.dart';
+import 'package:outii/Utils/constant.dart';
 import 'package:provider/provider.dart';
 import '../../../Core/Widgets/customSnackBar.dart';
-import '../../../Utils/Constant.dart';
-
-TextStyle textStyle = TextStyle(fontWeight: FontWeight.bold);
 
 class qrScanResult extends StatelessWidget {
   const qrScanResult({super.key});
@@ -24,26 +22,25 @@ class qrScanResult extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Text(
                   "Name :- " + adminProvider.Student_Name,
-                  style: textStyle,
+                  style: boldText,
                 ),
                 Text("Branch :- " + adminProvider.Student_Branch,
-                    style: textStyle)
+                    style: boldText),
               ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Phone No :- ' +
-                        context.watch<AdminProvider>().Student_parents_phone_no,
-                    style: textStyle,
+                    'Phone No :- ' + adminProvider.Student_parents_phone_no,
+                    style: boldText,
                   ),
                   Text(
                     'Roll No :- ' + adminProvider.Student_Roll_No,
-                    style: textStyle,
+                    style: boldText,
                   ),
                   Text(
                     "Year :-" + adminProvider.Student_current_Year.toString(),
-                    style: textStyle,
+                    style: boldText,
                   ),
                 ],
               ),
@@ -52,7 +49,7 @@ class qrScanResult extends StatelessWidget {
                   Flexible(
                     child: Text(
                       "Purpose :- " + adminProvider.Student_Going_Place,
-                      style: textStyle,
+                      style: boldText,
                     ),
                   )
                 ],
@@ -66,12 +63,12 @@ class qrScanResult extends StatelessWidget {
                       child: authButton(
                         function: () async {
                           if (adminProvider.BarCode?.code == null)
-                            showsnackbar("Error Occured", "Envalid QR",
-                                Colors.red, context);
+                            errorSnackbar(
+                                "Error Occured", "Envalid QR", context);
                           else {
                             await adminProvider.Check_Out(context);
-                            showsnackbar("Check Out Successfully",
-                                "Mail Sent To Warden", Colors.green, context);
+                            successSnackbar("Check Out Successfully",
+                                "Mail Sent To Warden", context);
                           }
                         },
                         buttonName: 'Check Out',
@@ -83,12 +80,12 @@ class qrScanResult extends StatelessWidget {
                       child: authButton(
                         function: () {
                           if (adminProvider.BarCode?.code == null)
-                            showsnackbar("Error Occured", "Envalid QR",
-                                Colors.red, context);
+                            errorSnackbar(
+                                "Error Occured", "Envalid QR", context);
                           else {
                             adminProvider.Check_In();
-                            showsnackbar("Check Out Successfully",
-                                "Mail Sent To Warden", Colors.green, context);
+                            successSnackbar("Check Out Successfully",
+                                "Mail Sent To Warden", context);
                           }
                         },
                         buttonName: 'Check In',
@@ -98,14 +95,13 @@ class qrScanResult extends StatelessWidget {
                     padding: EdgeInsets.only(left: 5),
                     height: MediaQuery.of(context).size.height * 0.05,
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 121, 91, 245),
+                        color: purple.withOpacity(0.5),
                         borderRadius: BorderRadius.circular(5)),
                     child: Row(
                       children: [
                         Text(
                           "Parents",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                          style: boldText.copyWith(color: Colors.white),
                         ),
                         Switch(
                             activeTrackColor: Colors.black,
